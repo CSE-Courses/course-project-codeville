@@ -1,16 +1,19 @@
+body{
+    height: 100vh;
+}
 #heading{
-    padding-top: 8%;
+    padding-top: 2%;
     color: #334ac0;
-    text-align: center;
+    text-align: center; 
     font-size: 1.6em;
-    padding-right: 7%;
+
     font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;
 }
 #container{
-    height: 65vh;
+    height: calc(100vh - var(--header-height));
 }
 .row{
-    margin: 5% 0 0 14%;
+    margin: 5% 0 0 15%;
 }
 .row span a{
     text-decoration: none;
@@ -28,6 +31,11 @@
     color: #334ac0; 
     font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;
 }
+.row.row2{
+    margin-left: 25%;
+}
 .row.row2 .name-tag{
+    display: inline-block;
     width: 49%;
+    margin: 0 auto;
 }
