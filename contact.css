@@ -1,0 +1,33 @@
+#heading{
+    padding-top: 8%;
+    color: #334ac0;
+    text-align: center;
+    font-size: 1.6em;
+    padding-right: 7%;
+    font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;
+}
+#container{
+    height: 65vh;
+}
+.row{
+    margin: 5% 0 0 14%;
+}
+.row span a{
+    text-decoration: none;
+}
+.row.row1 .name-tag{
+    display: inline-block;
+    width: 33%;
+}
+.name-tag img{
+    height: 110px;
+}
+.name-tag span{
+    display: block;
+    margin: 5% 0 0 7%;
+    color: #334ac0; 
+    font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;
+}
+.row.row2 .name-tag{
+    width: 49%;
+}
