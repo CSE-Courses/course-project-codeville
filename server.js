@@ -1,4 +1,8 @@
 //Required modules
+//npm install express
+//npm install body-parser --save
+//npm install cookie-parser --save
+//npm install multer --save
 //Express, Express cookie parser, Express multer
 
 const http = require('http');
@@ -8,6 +12,7 @@ const express = require('express');
 
 //Loads the express module onto variable app
 const app = express();
+const port = 3000;
 
 
 //I dont know exactly why this is the way to do it but it is
@@ -17,7 +22,7 @@ const app = express();
 //IMPORTANT DON'T INCLUDE STATIC IN DIR PATH IN HTML FILES
 //
 //Link the parent directory to use
-app.use(express.static(path.join(__dirname,'static')));
+app.use(express.static(path.join(__dirname)));
 
 //
 //Handling client requests below
@@ -45,35 +50,9 @@ app.get('/header', (req, res) => {
 //
 //Server listen handler
 //
+//For Heroku
+//var port = process.env.PORT || 80;
+
 app.listen(port, () => {
     console.log('Listening on port '+ port);
 });
-
-
-
-/*
-//Creates the server
-//req variable is what the client sends
-//res is the server response.
-const server = http.createServer(function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/html'});
-    fs.readFile('contact.html', function(error, data) {
-        if(error) {
-            res.writeHead(404 );
-            res.write('Error: File Not Found')
-        } else {
-            res.write(data)
-        }
-        res.end();
-    });
-
-});
-
-
-server.listen(port, function(error){
-    if(error) {
-        console.log('Something went wrong', error)
-    } else {
-        console.log('Server is listening on port ' + port)
-    }
-})*/
