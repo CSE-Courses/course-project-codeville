@@ -1,0 +1,183 @@
+.body{
+    background-color: #EDF2F7;
+}
+
+.rec{
+margin-top: 5rem;
+position: relative;
+width: 500px;
+height: 350px;
+left: 250px;
+top: 30px;
+background: #ffffff;
+
+box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+}
+
+.email_text{
+    padding-top: 1rem;
+    padding-left: 1rem;
+    width: 124px;
+    height: 30px;
+    top: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 15px;
+    line-height: 10px;
+    /* identical to box height */
+    color: #334AC0; 
+}
+.email_box{
+align-content: center;
+position: absolute;
+top: 2rem;
+bottom:1rem;
+left: 1rem;
+width: 400px;
+height: 30px;
+background: #EDF2F7;
+transform: rotate(-0.15deg);
+border: 2px solid rgba(51, 74, 192, 0.5);
+}
+
+.password{
+    padding-top: 2rem;
+    padding-left: 1rem;
+    width: 124px;
+    height: 30px;
+    left: 1rem;
+    top: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 10px;
+    /* identical to box height */
+    color: #334AC0; 
+}
+.password_box{
+    position: absolute;
+    left: 1rem;
+top: 6rem;
+width: 400px;
+height: 30px;
+background: #EDF2F7;
+transform: rotate(-0.15deg);
+border: 2px solid rgba(51, 74, 192, 0.5);
+}
+
+.password_confirm{
+    padding-top: 2rem;
+    padding-left: 1rem;
+    width: 124px;
+    height: 30px;
+    left: 1rem;
+    top: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 10px;
+    /* identical to box height */
+    color: #334AC0; 
+}
+.password_confirm_box{
+    position: absolute;
+    left: 1rem;
+    top: 10rem;
+    width: 400px;
+    height: 30px;
+    background: #EDF2F7;
+    transform: rotate(-0.15deg);
+    border: 2px solid rgba(51, 74, 192, 0.5);
+}
+
+
+.started{
+position: absolute;
+width: 753px;
+height: 76px;
+left: 320px;
+top: 140px;
+text-shadow: rgba(0, 0, 0, 0.12);
+margin-bottom: 3rem;
+font-family: Yeseva One;
+font-style: normal;
+font-weight: bold;
+font-size: 35px;
+line-height: 58px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #334AC0;
+}
+
+.input-container {
+     display: flex;
+     width: 100%;
+    margin-bottom: 15px;
+     }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+      }
+      
+      .icon {
+        padding: 10px;
+        background: dodgerblue;
+        color: white;
+        min-width: 50px;
+        text-align: center;
+      }
+
+.overlay{
+position: absolute;
+width: 500px;
+height: 350px;
+left: 270px;
+top: 230px;
+background: #334AC0;
+box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.12);
+}
+
+.paper{
+    position:absolute;
+    height: 30px;
+    width: 30px;
+    top:470px;
+    left: 550px;
+}
+
+.happy{
+position: absolute;
+height: 380px;
+width: 400px;
+left: 900px;
+top: 200px;
+}
+
+
+.begin_button{ 
+    width: 200.56px;
+    height: 50.57px;
+    margin-top: 5rem;
+    margin-left: 9rem;
+    background: #334AC0;
+    border-color:rgb(8, 5, 212);
+    border-radius: 20px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.12);
+    
+font-style: bold;
+font-weight: 600;
+font-size: 32px;
+line-height: 30px;
+font-family:Arial, Helvetica, sans-serif;
+color: white;
+}
+
+.test{
+    filter: brightness(0.5) sepia(4) hue-rotate(-70deg) saturate(2);
+}
