@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="js/nav.js"></script>
+    <title>WhoozeInIt?</title>
+</head>
+<body>
+    <header class="topnav" id="myTopnav">
+        <span>WhoozeInIt?</span>
+        <a class="signup" href="signup">SignUp</a>
+        <a class="login" href="login">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+    <div id='first'>
+        <div id="first-div">
+            <div id="first-div-container">
+                <div id="first-div-img-res">
+                    <img src="res/img/landing1.png" alt="illustration">
+                </div>
+                <div id="first-div-text">
+                    <h1 id="first-div-heading">Registering for classes?</h1>
+                    <span>
+                        Still texting your mates asking what classes they are taking this semester? <br>
+                        Do you want to see <span>Whooze</span> taking the class you chose? <br>
+                        <span>Whooze</span> in your section? What's your bud's schedule?
+                    </span>
+                </div>
+                <div id="first-div-img">
+                    <img src="res/img/landing1.png" alt="illustration">
+                </div>
+                <span class="link-to-next"><a href="#second"><i class="fas fa-caret-down"></i></a></span>
+                <script>
+                    document.getElementsByClassName("fas fa-caret-down")[0].focus();
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id='second'>
+        <div id="second-div-container">
+            <img src="res/img/landing2.png" alt="illustration">
+            <div id="second-div-text">
+                On <span>WhoozeInIt?</span>, you can see the classes your friends are taking. <br>
+                You can see who is teaching your section and who all have signed up for it.
+                <span class="link-to-next second"><a href="#third"><i class="fas fa-caret-down"></i></a></span>
+            </div>
+        </div>
+    </div>
+    <div id="third">
+        <div id="third-container">
+            <span>
+                <h1>You people seem to be busy professionals. So let's cut the sh*t out and get you started.</h1>
+            </span>
+            <button id="third-signup" onclick="window.location.href='/signup'">SignUp</button>
+            <button id="contactus" onclick="window.location.href='/contact.html'">Contact Us</button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var elmnt = document.getElementById("third-container");
+            var height = elmnt.offsetHeight;
+            elmnt.style.setProperty('--span-height', height + 'px');
+        });
+    </script>
+</body>
+</html>
