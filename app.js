@@ -40,6 +40,7 @@ port = 4000;
 
 
 //***ERROR HANDLER*** for middleware
+//Automatically catches any error middleware will send
 app.use(function (err,req, res, next) {
     //all this does is print the error and send error msg to client
     console.error(err.stack);
