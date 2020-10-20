@@ -1,0 +1,156 @@
+.body{
+    background-color: #EDF2F7;
+}
+.header{
+    width: 100vw;;
+}
+
+.started{
+    margin-bottom: 10vw;
+    margin-left: 5%;
+    margin-top: 3vh;
+    text-shadow: rgba(0, 0, 0, 0.12);
+    font-family: Yeseva One;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 8vw;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #334AC0;
+}
+
+.rec{
+margin-top: 14vw;
+margin-bottom: 6vw;
+margin-left: 10%;
+width: 70vw;
+height:80vw;
+background: #ffffff;
+box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+}
+
+.happy{
+    height: 70vw;
+    width: 80vw;
+    margin-left: 9vw;
+    margin-top: 10vw;
+}
+
+.overlay{
+    margin-bottom: -100%;
+    margin-top: 3vw;
+    margin-left: 15vw;
+    width: 70vw;
+    height:80vw;
+    background: #334AC0;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.12);   
+}
+
+
+.email_text{
+    padding-top: 2vw;
+    padding-left: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 10vw;
+    font-size: 4vw;
+    color: #334AC0; 
+}
+
+.email_box{
+    margin-top: 1.5vw;
+align-content: center;
+width: 60vw;
+height: 7vw;
+margin-left: 3%;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+}
+
+.password{
+padding-top: 6vw;
+padding-left: 2vw;
+font-family: 'Times New Roman', Times, serif;
+font-style: normal;
+font-weight: 10vw;
+font-size: 4vw;
+line-height: 10px;
+color: #334AC0; 
+}
+
+.password_box{
+margin-top: 1.5vw;
+align-content: center;
+width: 60vw;
+height: 7vw;
+margin-left: 3%;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+}
+
+.password_confirm{
+    padding-top: 6vw;
+    padding-left: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 10vw;
+    font-size: 4vw;
+    line-height: 10px;
+    color: #334AC0; 
+}
+
+.password_confirm_box{
+    margin-top: 1.5vw;
+    align-content: center;
+    width: 60vw;
+   height: 7vw;
+    margin-left: 3%;
+    background: #EDF2F7;
+    border: 2px solid rgba(51, 74, 192, 0.5);
+    transform: rotate(-0.15deg);
+}
+
+.begin_button{ 
+    width: 22vw;
+    height: 8vw;
+    margin-top: 8vw;
+    margin-left: 22vw;
+    background: #334AC0;
+    border-color:rgb(8, 5, 212);
+    border-radius: 5vw;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.12);
+    font-style: bold;
+    font-weight: 600;
+    font-size: 4vw;
+    line-height: 2vw;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+   margin-bottom: 15px;
+    }
+
+   .input-field {
+       width: 100%;
+       padding: 10px;
+       outline: none;
+     }
+     
+     .icon {
+       padding: 10px;
+       background: dodgerblue;
+       color: white;
+       min-width: 50px;
+       text-align: center;
+     }
+
+
+
+
+.test{
+   filter: brightness(0.5) sepia(4) hue-rotate(-70deg) saturate(2);
+}
