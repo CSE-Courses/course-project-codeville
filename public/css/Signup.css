@@ -2,6 +2,8 @@
     background-color: #EDF2F7;
 }
 
+
+
 .started{
     margin-left: 13%;
     margin-top: 3%;
@@ -55,10 +57,13 @@ box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
 margin-top: .5vw;;
 align-content: center;
 width: 30vw;
-height: 2vw;
+height: 3vw;
 margin-left: 3%;
 background: #EDF2F7;
 border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-weight: 5vw;
+font-size: 1vw;
 }
 
 .password{
@@ -75,10 +80,13 @@ border: 2px solid rgba(51, 74, 192, 0.5);
 margin-top: .5vw;;
 align-content: center;
 width: 30vw;
-height: 2vw;
+height: 3vw;
 margin-left: 3%;
 background: #EDF2F7;
 border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-weight: 5vw;
+font-size: 1.5vw;
 }
 
 .password_confirm{
@@ -95,11 +103,14 @@ border: 2px solid rgba(51, 74, 192, 0.5);
     margin-top: .5vw;;
     align-content: center;
     width: 30vw;
-    height: 2vw;
+    height: 3vw;
     margin-left: 3%;
     background: #EDF2F7;
     transform: rotate(-0.30deg);
     border: 2px solid rgba(51, 74, 192, 0.5);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 5vw;
+   font-size: 1.5vw;
 }
 
 .begin_button{ 
@@ -115,7 +126,7 @@ border: 2px solid rgba(51, 74, 192, 0.5);
     font-weight: 600;
     font-size: 2.3vw;
     line-height: 2vw;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: white;
 }
 
@@ -128,31 +139,3 @@ border: 2px solid rgba(51, 74, 192, 0.5);
 }
 
 
-
-
-.input-container {
-     display: flex;
-     width: 100%;
-    margin-bottom: 15px;
-     }
-
-    .input-field {
-        width: 100%;
-        padding: 10px;
-        outline: none;
-      }
-      
-      .icon {
-        padding: 10px;
-        background: dodgerblue;
-        color: white;
-        min-width: 50px;
-        text-align: center;
-      }
-
-
-
-
-.test{
-    filter: brightness(0.5) sepia(4) hue-rotate(-70deg) saturate(2);
-}
