@@ -17,8 +17,11 @@ const app = express();
 //   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V
 
 //Links middleware index
-const index = require('./routes/index.js')
+const index = require('./routes/index.js');
 
+//For testing only
+//Links my test database(local) to test_db.
+//const test_db = require('./testDB.js');
 
 
 
