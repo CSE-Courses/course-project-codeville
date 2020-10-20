@@ -1,0 +1,136 @@
+.Personal_messageSetUp{
+margin-top: 2vw;
+margin-left: 18vw;  
+margin-right: 20vw;
+font-family: 'Merriweather', serif;
+font-style: normal;
+font-weight: bold;
+font-size: 3vw;
+line-height: 3.5vw;
+display: flex;
+align-items: center;
+text-align: center;
+color: #000000;
+}
+
+.first_name{
+    margin-top: 3vw;
+    margin-left:25vw ;
+}
+
+.first_name_text{
+    padding-bottom: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 5vw;
+    font-size: 1.5vw;
+    color: #334AC0; 
+}
+
+.first_name_box{
+width: 20vw;
+height: 3vw;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 5vw;
+font-size: 1.5vw;
+color: rgb(0, 0, 0);
+}
+
+.last_name{
+    margin-top: -6vw;
+    margin-left:55vw ;
+}
+
+.last_name_text{
+    padding-bottom: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 5vw;
+    font-size: 1.5vw;
+    color: #334AC0; 
+}
+
+.last_name_box{
+width: 20vw;
+height: 3vw;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 5vw;
+font-size: 1.5vw;
+color: rgb(0, 0, 0);
+}
+
+.dob{
+    margin-top: 3vw;
+    margin-left:25vw ;
+}
+
+.dob_text{
+    padding-bottom: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 5vw;
+    font-size: 1.5vw;
+    color: #334AC0; 
+}
+
+.dob_box{
+width: 20vw;
+height: 3vw;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 5vw;
+font-size: 1.5vw;
+color: rgb(0, 0, 0);
+}
+
+.gender{
+    margin-top: -5.6vw;
+    margin-left:55vw ;
+}
+
+.gender_text{
+    padding-bottom: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 5vw;
+    font-size: 1.5vw;
+    color: #334AC0; 
+}
+
+.gender_box{
+width: 21vw;
+height: 3.3vw;
+background: #EDF2F7;
+border: 2px solid rgba(51, 74, 192, 0.5);
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 5vw;
+font-size: 1.5vw;
+color: rgb(0, 0, 0);
+}
+
+
+.next{
+    width: 10vw;
+    height: 4vw;
+    margin-top: 5vw;
+    margin-left: 45vw;
+    background: #334AC0;
+    border-color:rgb(8, 5, 212);
+    border-radius: 5vw;
+    box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+    font-style: bold;
+    font-weight: 10;
+    font-size: 2vw;
+    line-height: 2vw;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}

@@ -1,0 +1,228 @@
+
+button{
+	cursor: pointer;
+}
+html{
+	scroll-behavior: smooth;
+	color: #545465;
+	background-color: #f6f6f6;
+	font-family: 'Poppins', sans-serif, Arial, Helvetica, sans-serif;
+}
+#first{
+	height: 80vh;
+}
+#second, #third{
+	height: 100vh;
+}
+#first-div-container, #second-div-container{
+	position: relative;
+	height: 100%;
+}
+#second{
+	margin-top:3%;
+}
+#first-div{
+	height: 100%;
+	margin: 0 10% 0 10%;
+}
+#first-div-text{
+	display: inline-block;
+	width: 49%;
+	font-size: 1.3em;
+}
+#first-div-text span{
+	line-height: 2;
+}
+#first-div-heading{
+	font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;
+	color: #334ac0;
+	font-size: 2.3em;
+	margin: 10% 0 5% 0;
+}
+#first-div-img-res{
+	display: none;
+}
+#first-div-img{
+	display: inline-block;
+	width: 49%;
+	height: 100%;
+}
+#first-div-img img{
+	width: 100%;
+	position: relative;
+	top: 10%;
+	height: 90%;
+}
+#first-div-text span span{
+	color: #334ac0;
+}
+.link-to-next{
+	display: block;
+	text-align: center;
+	font-size: 3em;
+	opacity: 0.7;
+	margin-top: -5%;
+}
+.link-to-next.second{
+	font-size: 2em;
+	margin-top: -1%;
+}
+.fas.fa-caret-down{
+	color: #000000;
+}
+
+/* bounce effect adapted from https://stackoverflow.com/questions/23152900/how-to-create-bouncing-div-animation */
+.fas.fa-caret-down:hover{
+	-webkit-animation:bounce 1s infinite;
+	animation: bounce 1s infinite;
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-20px); }
+  60% {
+    -webkit-transform: translateY(-10px); } }
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-20px); }
+  60% {
+    -moz-transform: translateY(-10px); } }
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); }
+  60% {
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px); } }
+/* end bounce effect code */
+
+#second-div-container img{
+	width: 90%;
+	height: 50%;
+	margin: 2% 5% 0 5%;
+}
+#second-div-text{
+	font-size: 1.3em;
+	text-align: center;
+	margin-top: 3%;
+	line-height: 2;
+}
+#second-div-text span{
+	font-family: 'Sacramento', cursive, Arial, Helvetica, sans-serif;
+	color: #334ac0;
+}
+#third{
+	background-color: #334ac0;
+	color: #ffffff;
+	align-content: center;
+	font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;	
+}
+#third-container{
+	position: relative;
+	top: calc((100vh - var(--span-height))/2);
+	font-size: 3em;
+	text-align: center;
+}
+#third-container span{
+	display: block;
+	padding: 0 10% 0 10%;
+	text-align: center;
+}
+#third-signup{
+	font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;	
+	margin: 0 auto;
+	color: #334ac0;
+	background-color: #ffffff;
+	font-size: 1em;
+	border: none;
+	border-radius: 30px;
+	box-shadow: 0px 2px 2px #000000;
+	margin-top: 5%;
+	padding: 1% 2%;;
+}
+#contactus{
+	display: block;
+	font-family: 'Yeseva One', cursive, Arial, Helvetica, sans-serif;	
+	margin: 0 auto;
+	color: #334ac0;
+	background-color: #ffffff;
+	font-size: 0.4em;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 0px 2px 2px #000000;
+	margin-top: 3%;
+	padding: 1% 2%;;
+}
+
+@media screen and (max-width: 1050px) {
+ 
+  #first-div-container .link-to-next{
+	  padding-top: 6%;
+  }
+}
+
+@media screen and (max-width: 760px){
+	#first-div-text, #first-div-heading{
+		text-align: center;
+		width: 100%;
+		display: block;
+	}
+	#first-div-img{
+		display: none;
+	}
+	#first-div-img-res{
+	display: block;
+	height: 40%;
+}
+#first-div-img-res img{
+	width: 90%;
+	padding-top: 5%;
+	height: 100%;
+}
+#first-div{
+	margin-top: 0%;
+}
+#third-signup{
+	padding: 1% 5%;
+}
+#contactus{
+	padding: 2% 5%;
+	margin-top: 10%;
+}
+
+#first-div-heading{
+	font-size: 2em;
+}
+#first-div-text, #second-div-text{
+	font-size: 1em;
+}
+#third-container{
+	font-size: 2.5em;
+}
+#second-div-container img{
+	width:90%;
+	height: 30%;
+	margin: 20% 5% 0 5%;
+}
+#second-div-text{
+	margin-top: 35%;
+}
+.link-to-next.second{
+	font-size: 3em;
+}
+}
