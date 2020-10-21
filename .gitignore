@@ -1,6 +1,9 @@
 #modules
 node_modules/
 
+#local env
+*.env
+
 #any compressed files
 *.7z
 *.dmg

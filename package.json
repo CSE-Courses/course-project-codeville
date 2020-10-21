@@ -1,11 +1,12 @@
 {
-  "name": "course-project-codeville",
+  "name": "whoozeinit",
   "version": "1.0.0",
-  "description": "course-project-codeville created by GitHub Classroom",
+  "description": "webapp",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
@@ -18,16 +19,17 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UB-CSE/course-project-codeville.git"
+    "test": "echo \"no test\"",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/UB-CSE/course-project-codeville/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakharpbuf/codeville-pvt.git"
   },
-  "homepage": "https://github.com/UB-CSE/course-project-codeville#readme"
+  "bugs": {
+    "url": "https://github.com/prakharpbuf/codeville-pvt/issues"
+  },
+  "homepage": "https://github.com/prakharpbuf/codeville-pvt#readme"
 }

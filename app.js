@@ -8,7 +8,9 @@ const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const { Client } = require('pg');
+const crypto = require('crypto');
 var conn = require('./db.js');
+const env = require("dotenv").config();
 const index = require('./routes/index.js');
 const auth = require('./routes/auth.js');
 
@@ -23,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(cookieParser());
 app.use(session({
-    secret: "codeVille",
+    secret: process.env.secretSession,
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 }

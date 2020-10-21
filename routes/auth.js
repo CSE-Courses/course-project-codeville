@@ -1,5 +1,6 @@
 const express = require('express');
 const connection  = require('../db');
+const crypto = require('crypto');
 
 var router = express.Router();
 
@@ -57,9 +58,12 @@ connection.query('SELECT email from users where email = $1',[user.email],functio
     return res.render('login');
   }
 else{
+    const cipher = crypto.createCipher('aes128', 'a password');
+    var encrypted = cipher.update(password, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
 //No errors were found.  Passed Validation!
 req.session.email=user.email;
-connection.query('INSERT INTO users (email, password, isVerified) VALUES ($1, $2, $3);', [user.email,user.password, 0], function(err, result) {
+connection.query('INSERT INTO users (email, password, isVerified) VALUES ($1, $2, $3);', [user.email,encrypted, 0], function(err, result) {
 //if(err) throw err
 if (err) {
 req.flash('error', err)
