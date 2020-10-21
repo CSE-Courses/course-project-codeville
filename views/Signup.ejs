@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\Signup.css">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="css\Signup_mobile.css">
+
+    <script src="js/nav.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <title>Sign Up Page</title>
+</head>
+<body class="body">
+
+    <header class="topnav" id="myTopnav">
+        <span>WhoozeInIt?</span>
+        <a class="signup" href="index.html">Home</a>
+        <a class="login" href="Login">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <p class="started">Let's get you started</p>
+        <div class="overlay"></div>
+        <div class="rec">
+            <form action="register" method="post">
+                <p class="email_text"> School Email</p>
+                <input class="email_box" type="text" id="email" name="email" required>
+                
+                <p class="password"> Password</p>
+                <input class="password_box" type="password" id="password" name="password" required>
+            
+                <p class="password_confirm">Confirm Password</p>
+                <input class="password_confirm_box" type="password" id="password" name="passwordConf" required>
+                <% if (messages.error) { %>
+                <p style="color:red; margin-top:7%;"><%- messages.error %></p>
+                <% } %>
+                <% if (messages.success) { %>
+                <p style="color:green;margin-top:7%"><%- messages.success %></p>
+                <% } %>
+                <button type="submit" class="begin_button" >Begin</button>
+            </form>
+        </div>
+
+        <img class="happy" src="res\img\happy.png"/>
+        
+       
+     
+
+
+</body>
+</html>

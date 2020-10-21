@@ -2,7 +2,9 @@
     background-color: #EDF2F7;
 }
 
-
+button{
+    cursor: pointer;
+}
 .started{
     margin-bottom: 10vw;
     margin-left: 5%;
