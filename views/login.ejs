@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhoozeInIt?</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <img src="res/img/login.svg" id ="img" alt="Login Page Image">
+      <form class="login-form" action="index.html" method="post">
+        <h1><a href="index.html" id="heading">WhoozeInIt?</a></h1>
+        <div class="form-contents">
+          <label for="email" id="email-label">Email:</label>
+          <input type="email" id="email-box" name="email" placeholder="Enter Email" required>
+          <label for="password" id="password-label">Password:</label>
+          <input type="password" id="password-box" name="password" placeholder="Enter Password" required>
+					<% if (messages.error) { %>
+							 <p style="color:red; margin-top:7%;"><%- messages.error %></p>
+							 <% } %>
+							 <% if (messages.success) { %>
+							 <p style="color:green;margin-top:7%"><%- messages.success %></p>
+							 <% } %>
+          <button type="button" id="login-button" name="login" onclick="window.location.href='home.html'">Login</button>
+          <a href="Forgot_Password.html" id="forgot-password">Forgot Password</a>
+          <a href="signup" id="join-now">New Here? Join Now</a>
+        </div>
+      </form>
+      <img src="res/img/mlogin.svg" id = "mobileimg" alt="Login Page Image">
+    </div>
+  </body>
+</html>

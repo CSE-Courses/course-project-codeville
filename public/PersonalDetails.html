@@ -8,9 +8,37 @@
             for (var x in subjectObject) {
                 subjectSel.options[subjectSel.options.length] = new Option(x, x);
             }}
-    
+
+						/*
+								sendDetails() :
+								Send personal details data to the server using fetch().
+
+								@author Manav Majithia
+						*/
+						function sendDetails(){
+
+			        var first_name = document.getElementsByName('first_name')[0].value;
+			        var last_name = document.getElementsByName('last_name')[0].value;
+			        var dob = document.getElementsByName('dob')[0].value;
+			        var gender = document.getElementById('gender_selected').value;
+							gender = gender.substring(0,1);
+			        const details = {first_name,last_name,dob,gender};
+			        const options = {
+			          method: "POST",
+			          headers: {
+			            'Content-Type': 'application/json'
+			          },
+			          body: JSON.stringify(details)
+			        };
+
+			        fetch('/personal_details',options).then(res =>{
+			          console.log(res);
+			        });
+
+			      }
+
         </script>
-     
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\PersonalDetails.css">
@@ -37,7 +65,7 @@
     </header>
 
     <h1 class="Personal_messageSetUp">Hello! I’m Naina. I’ll help you set up your profile. Are you Ready?</h1>
-    
+
     <div class="first_name">
          <p class="first_name_text">First Name</p>
         <input class="first_name_box" type="text" id="first_name" name="first_name" >
@@ -52,7 +80,7 @@
         <p class="dob_text">Date of Birth</p>
         <input class="dob_box" type="date" id="calender" name="dob" >
     </div>
-    
+
     <div class="gender">
      <p class="gender_text">Gender</p>
      <form  name="gender" id="gender" action="/action_page.php">
@@ -64,9 +92,9 @@
 
 
 
-  
-    <button onclick="window.location.href='/education'"  id="next" class="next"> Next</button>
-   
-    
+
+    <button onclick="sendDetails()"  id="next" class="next"> Next</button>
+
+
 </body>
 </html>
