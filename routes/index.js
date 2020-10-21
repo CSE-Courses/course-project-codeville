@@ -15,7 +15,22 @@ router.use(express.static(path.join(__dirname,'../public')));
 //this is the default page that will be loaded on our site
 router.get('/', (req,res) => {
     //res.sendFile(***INSERT HOME PAGE HTML HERE***);
-    res.send('Hello world!');
+});
+
+router.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname,'../public', '/contact.html'));
+});
+
+router.get('/education', (req, res) => {
+    res.sendFile(path.join(__dirname,'../public','/education.html'));
+});
+
+router.get('/PersonalDetails', (req, res) => {
+    res.sendFile(path.join(__dirname,'../public','/PersonalDetails.html'));
+});
+
+router.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname,'../public' ,'/Signup.html'));
 });
 
 
