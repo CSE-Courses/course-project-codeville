@@ -3,7 +3,9 @@
 }
 
 
-
+button{
+    cursor: pointer;
+}
 .started{
     margin-left: 13%;
     margin-top: 3%;
