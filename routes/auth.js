@@ -59,7 +59,7 @@ connection.query('SELECT email from users where email = $1',[user.email],functio
   }
 else{
     const cipher = crypto.createCipher('aes128', 'a password');
-    var encrypted = cipher.update(password, 'utf8', 'hex');
+    var encrypted = cipher.update(user.password, 'utf8', 'hex');
     encrypted += cipher.final('hex');
 //No errors were found.  Passed Validation!
 req.session.email=user.email;
