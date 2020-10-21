@@ -40,5 +40,14 @@ app.get('*', (req, res) => {
     res.render("404");
 });
 
+//***ERROR HANDLER*** for middleware
+//Automatically catches any error middleware will send
+app.use(function (err,req, res, next) {
+    //all this does is print the error and send error msg to client
+    console.error(err.stack);
+    res.status(500).send('ERROR, printing to console.error')
+});
+
+
 port = process.env.PORT || 80;
 var server = app.listen(port)
