@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <img src="res/img/login.svg" id ="img" alt="Login Page Image">
-      <form class="login-form" action="index.html" method="post">
+      <form class="login-form" action="auth" method="post">
         <h1><a href="index.html" id="heading">WhoozeInIt?</a></h1>
         <div class="form-contents">
           <label for="email" id="email-label">Email:</label>
@@ -26,7 +26,7 @@
 							 <% if (messages.success) { %>
 							 <p style="color:green;margin-top:7%"><%- messages.success %></p>
 							 <% } %>
-          <button type="button" id="login-button" name="login" onclick="window.location.href='home.html'">Login</button>
+          <button type="submit" id="login-button" name="login">Login</button>
           <a href="Forgot_Password.html" id="forgot-password">Forgot Password</a>
           <a href="signup" id="join-now">New Here? Join Now</a>
         </div>

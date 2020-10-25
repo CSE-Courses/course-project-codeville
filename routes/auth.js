@@ -14,6 +14,44 @@ router.use(function(req, res, next) {
 router.get('/login', (req, res) => {
     res.render("login");
 });
+router.post('/auth', function (req, res, next) {
+  var email = req.body.email;
+  var password = req.body.password
+  const cipher = crypto.createCipher('aes128', 'a password');
+  var encrypted = cipher.update(password, 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+  connection.query('SELECT * FROM users WHERE email = $1 AND password = $2', [email, encrypted], (err, rows) => {
+    if (err) console.log(err);
+    // if user not found
+    if (rows.rows.length <= 0) {
+      connection.query('SELECT email from users WHERE email=$1', [email], (err, rows) => {
+        if (rows.rows.length <= 0) {
+          req.flash('error', 'Please signup first');
+          return res.redirect('signup');
+        }
+        else {
+          req.flash('error', 'Wrong ID/Pass');
+          return res.redirect('login');
+        }
+      });
+    }
+    // if (!rows.rows.isVerified) {
+    //   req.flash('error', 'Please verify your email first')
+    //   return res.redirect('verify')
+    // }
+    else if (rows.rows.length == 1) { // if user found
+      // render to views/user/edit.ejs template file
+      req.session.loggedin = true;
+      req.session.email = email;
+      return res.send("HI");
+    }
+    else {
+      req.flash('error', 'Some error occured');
+      return res.render('login');
+    }
+  });
+});
+
 
 router.get('/Signup', (req, res) => {
     res.render("Signup");
@@ -76,6 +114,7 @@ return res.render('login');
 }
 });
 });
+
 
 
 
