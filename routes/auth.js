@@ -16,6 +16,12 @@ router.get('/login', (req, res) => {
 });
 router.post('/auth', function (req, res, next) {
   var email = req.body.email;
+  var patt = /@buffalo.edu$/;
+  var result = email.match(patt);
+  if (result == null) {
+    req.flash('error', 'Use only buffalo.edu email please');
+    return res.render('login');
+  }
   var password = req.body.password
   const cipher = crypto.createCipher('aes128', 'a password');
   var encrypted = cipher.update(password, 'utf8', 'hex');
