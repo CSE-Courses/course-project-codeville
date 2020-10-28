@@ -1,0 +1,68 @@
+.body{
+    background: #334AC0;
+    height:200vw;
+}
+
+.box{
+    background-color: white;
+}
+
+.Line1{
+    margin-top: 5vw;
+    color: white;
+    font-size: 8vw;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: 300vw;
+    letter-spacing: 0em;
+    padding-bottom: 6vw;
+    text-align: center;
+}
+
+.Line2{
+   
+    color: white;
+    font-size: 5.5vw;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: 7vw;
+    letter-spacing: 0em;
+    padding-bottom: 5vw;
+    margin-left: 10vw;
+}
+
+.Line3{
+    
+    color: white;
+    font-size: 4vw;
+    font-style: normal;
+    font-weight:normal;
+    letter-spacing: 0em;
+    margin-left:20vw;
+}
+
+.homebutton{
+   
+    margin-top: 7.8vw;
+    margin-left: 29vw;
+    width: 40vw;
+    height: 10vw;  
+    background-color: white;
+    border-radius: 4vw;
+    box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+    border-color: white;
+    color: #334AC0;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight:25vw;
+    font-size: 5vw;
+    line-height: 2vw;
+    
+}
+
+.frame{
+    margin-top: 5vw;
+    margin-left: 6vw;
+    height: 80vw;
+    width:80vw;
+}
