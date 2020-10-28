@@ -13,7 +13,7 @@
     color: #000000;
 }
 
-.major{
+.major_div{
     align-content: center;
     margin-top: 5vw;
     margin-left:20vw ;
@@ -40,7 +40,7 @@
     color: rgb(0, 0, 0);
 }
 
-.class_standing{
+.class_standing_div{
     align-content: center;
     margin-top: 8vw;
     margin-left:20vw ;

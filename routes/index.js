@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const connection  = require('../db');
+
 
 const router = express.Router();
 
@@ -27,6 +29,20 @@ router.get('/education', (req, res) => {
 
 router.get('/PersonalDetails', (req, res) => {
     res.sendFile("PersonalDetails.html");
+});
+
+router.post('/education',(req, res)=>{
+    const major = req.body.major;
+    const standing = req.body.class_standing;
+    //LOGIC FOR VERIFYING INFO
+    //console.log(major,standing);//To test that it retrieves correct info
+
+
+
+
+    //UPDATING USER DATABASE WITH CHOICES
+    //Need to create logs for majors and class standings in database
+    //connection.query(........)
 });
 
 
