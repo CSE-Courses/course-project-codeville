@@ -22,7 +22,7 @@ router.get('/contact', (req, res) => {
 });
 
 router.get('/education', (req, res) => {
-    res.sendFile("education.html");
+    res.render('education');
 });
 
 router.get('/PersonalDetails', (req, res) => {

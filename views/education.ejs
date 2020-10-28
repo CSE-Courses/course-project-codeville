@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\education.css">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="css\education_mobile.css">
+
+    <script src="js/nav.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <title>Education Details</title>
+</head>
+<body>
+
+<header class="topnav" id="myTopnav">
+    <span>WhoozeInIt?</span>
+    <a class="signup" href="index.html">Home</a>
+    <a class="login" href="Login">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+        <i class="fa fa-bars"></i>
+    </a>
+</header>
+
+<h1 class="Education_setup">Alright FirstName! Let's get your educational details!</h1>
+
+<div class="overlay">
+    <form action="education" method="post"></form>
+        <div class="major">
+            <p class="major_text">Major</p>
+            <input class="major_box" type="text" id="major" name="major" required>
+        </div>
+
+        <div class="class_standing">
+            <p class="class_standing_text">Class Standing</p>
+            <input class="class_standing_box" type="text" id="class_standing" name="class_standing" required>
+        </div>
+    <button type="submit" id="next" class="next"> Next</button>
+    </form>
+</div>
+
+
+</body>
+</html>
