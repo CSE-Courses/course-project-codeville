@@ -13,7 +13,7 @@ var conn = require('./db.js');
 const env = require("dotenv").config();
 const index = require('./routes/index.js');
 const auth = require('./routes/auth.js');
-const pd = require('./routes/PersonalDetails.js');
+//const pd = require('./routes/PersonalDetails.js');
 
 
 app.set('view engine', 'ejs');
@@ -34,7 +34,7 @@ app.use(expressValidator());
 
 app.use('/', index);
 app.use('/', auth);
-app.use('/', pd);
+//app.use('/', pd);
 
 app.get('*', (req, res) => {
     res.render("404");
