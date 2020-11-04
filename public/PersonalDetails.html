@@ -30,12 +30,13 @@
 			          },
 			          body: JSON.stringify(details)
 			        };
-
+							console.log("Sending data...");
 			        fetch('/personal_details',options).then(res =>{
 			          console.log(res);
+								if(res.redirected == true){
+									window.location.href= 'education.html';
+								}
 			        });
-                    window.location.href='/education'
-
 			      }
 
         </script>
