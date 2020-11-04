@@ -34,11 +34,14 @@
             <p class="major_text">Major</p>
             <input class="major_box" type="text" id="major" name="major" list="major_list" required>
             <datalist id="major_list">
-                <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
-                <option value="Junior">Junior</option>
-                <option value="Senior">Senior</option>
-            </datalist>
+                <% for(var i = 0; i < data.length; i++){%>
+                <option> <%= data[i].major %></option>
+                <%}%>
+<!--                <option value="Freshman">Freshman</option>-->
+<!--                <option value="Sophomore">Sophomore</option>-->
+<!--                <option value="Junior">Junior</option>-->
+<!--                <option value="Senior">Senior</option>-->
+           </datalist>
         </div>
 
         <div class="class_standing_div">
