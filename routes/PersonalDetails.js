@@ -25,6 +25,14 @@ var gender;
 		data from the client and then updating the database
 		with the data received.
 */
+
+
+app.get('/PersonalDetails', (req, res) => {
+    res.render("PersonalDetails");
+});
+
+
+
 app.post('/personal_details', function (req,res) {
 
       first_name = req.body.first_name.toString();
@@ -33,6 +41,25 @@ app.post('/personal_details', function (req,res) {
       gender = req.body.gender.toString();
       console.log("Data received.");
 
+//		Input Validation for Personal DETAILS
+
+
+			if (first_name=="" || !(first_name.isAlpha()) || first_name.length<50){
+				req.flash("error", "Invalid input for First Name.")
+				res.render("/PersonalDetails");
+			}
+			if (last_name=="" || !(last_name.isAlpha()) || last_name.length<50){
+				req.flash("error", "Invalid input for Last Name.")
+				res.render("/PersonalDetails");
+			}
+			if (dob == ""){
+				req.flash("error", "Invalid date of birth.")
+				res.render("/PersonalDetails");
+			}
+			if (gender=="" || !(gender.isAlpha()) || gender.length<=1){
+				req.flash("error", "Invalid input for gender.")
+				res.render("/PersonalDetails");
+			}
 
 
 //		Update the databse with Personal Details received from Client.
