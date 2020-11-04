@@ -63,21 +63,19 @@
         <div class="p-5">
           <div class="text-center">
             <h1 class="h4 mb-5">You are all set!</h1>
-            <p>
-              Please enter your registered school email and we will send you a
-              verification link.
-            </p>
+            <p>Please enter the code received in verification email.</p>
 
             <!-- <div class="card-header text-center">Can't remember your password ?</div> -->
             <div class="card-body">
-              <form>
-                <div class="form-row mt-4 mb-4">
+              <form action="verify" method="post">
+                <div class="form-row mt-2 mb-4">
                   <!-- <label for="email">School email</label> -->
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    id="email"
-                    placeholder="School Email"
+                    id="verify"
+                    placeholder="Verification Code"
+                    name="token"
                   />
                 </div>
                 <!-- <div class="form-row mb-4">
@@ -87,8 +85,17 @@
                 <div class="row">
                   <div class="col text-center">
                     <!-- <button type="submit" class="btn btn-success btn-large"> -->
+                    <% if (messages.error) { %>
+                    <p style="color: red; padding-top: 2%">
+                      <%- messages.error %>
+                    </p>
+                    <% } %> <% if (messages.success) { %>
+                    <p style="color: green; padding-top: 2%">
+                      <%- messages.success %>
+                    </p>
+                    <% } %>
                     <button
-                      type="button"
+                      type="submit"
                       class="btn btn-primary btn-user btn-block"
                     >
                       Send
