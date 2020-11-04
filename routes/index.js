@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const connection  = require('../db');
 
+//For testing only!
+//const connection  = require('../testDB');
 
 const router = express.Router();
 
