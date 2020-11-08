@@ -1,0 +1,25 @@
+.profilepic{
+    margin-top: 1vw;
+    border: 5px solid rgb(0, 0, 0);
+    width: 40vw;
+    height: 40vw;
+    margin-left: 30vw;
+    }
+
+    .editbutton{
+        width: 25vw;
+        height: 13vw;
+        margin-top: 1vw;
+        margin-left: 39vw;
+    
+        background: #334AC0;
+        border-color:rgb(0, 0, 0);
+        border-radius: 1vw;
+        box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+        font-style: bold;
+        font-weight: 4vw;
+        font-size: 3.5vw;
+        line-height: 2vw;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        }
