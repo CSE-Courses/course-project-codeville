@@ -42,19 +42,20 @@ router.post('/auth', function (req, res, next) {
         }
       });
     }
-    if (rows.rows[0].isVerified==0) {
-      //console.log(rows.rows,"===========");
+    if (rows.rows[0].isverified==0) {
+      console.log(rows,"===========");
       req.session.email=email;
       req.flash('error', 'Please verify your email first')
       return res.redirect('verify')
     }
-    else if (rows.rows.length == 1) { // if user found
+    else if (rows.rows.length == 1 && rows.rows[0].isverified==1) { // if user found
       // render to views/user/edit.ejs template file
       req.session.loggedin = true;
       req.session.email = email;
       return res.redirect("home")
     }
     else {
+      //console.log("---------",rows);
       req.flash('error', 'Some error occured');
       return res.render('login');
     }
@@ -156,6 +157,14 @@ router.post('/verify', function (req, res, next) {
       return res.redirect('login')
     }
   });
+});
+
+// Logout user
+router.get('/logout', function (req, res) {
+  console.log("here");
+  req.session.loggedin = 0;
+  req.session.destroy();
+  return res.redirect('login');
 });
 
 

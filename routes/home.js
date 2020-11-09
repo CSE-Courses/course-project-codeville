@@ -10,12 +10,19 @@ router.use(function (req, res, next) {
     next();
 });
 router.use(function(req,res,next){
-    if(!req.session.loggedin){
-        req.flash('error','Please login first')
+    if(!req.session || !req.session.loggedin){
+        //console.log(req.session, "================");
+        req.flash('error', 'Please login first')
         return res.redirect('login')
         res.end()
     }
-    next();
+   next();
+})
+router.get('/personaldetails', function (req, res, next) {
+    res.render('personaldetails')
+})
+router.get('/education', function (req, res, next) {
+    res.render('education')
 })
 
 router.get('/home',function(req,res,next){
@@ -33,11 +40,5 @@ router.get('/home',function(req,res,next){
 })
 
 
-router.get('/personaldetails',function(req,res,next){
-    res.render('personaldetails')
-})
-router.get('/education',function(req,res,next){
-    res.render('education')
-})
 
 module.exports = router;
