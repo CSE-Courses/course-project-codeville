@@ -43,7 +43,7 @@ router.post('/auth', function (req, res, next) {
       });
     }
     if (rows.rows[0].isVerified==0) {
-      console.log(rows.rows,"===========");
+      //console.log(rows.rows,"===========");
       req.session.email=email;
       req.flash('error', 'Please verify your email first')
       return res.redirect('verify')
@@ -52,7 +52,7 @@ router.post('/auth', function (req, res, next) {
       // render to views/user/edit.ejs template file
       req.session.loggedin = true;
       req.session.email = email;
-      return res.send("HI");
+      return res.redirect("home")
     }
     else {
       req.flash('error', 'Some error occured');
@@ -135,8 +135,9 @@ router.post('/verify', function (req, res, next) {
       throw err;
     }
     tok = result.rows[0].token.trim();
-    bodyTok = req.sanitize('token').escape().trim()
-    if (req.body.token!= bodyTok) {
+    bodyTok = req.sanitize('token').escape().trim();
+    //console.log(tok,"=========",bodyTok);
+    if (tok!= bodyTok) {
       req.flash('error', 'Invalid Token');
       return res.render('verify');
     }
@@ -145,17 +146,16 @@ router.post('/verify', function (req, res, next) {
         if (err) {
           throw err;
         }
-        //console.log(req.session.email,"email-------------");
       });
       connection.query('delete from verify where email = $1', [req.session.email], function (err, result) {
         if (err) {
           throw err;
         }
       });
+      req.flash('success', 'you have successfully signed up')
+      return res.redirect('login')
     }
   });
-  req.flash('success', 'you have successfully signed up')
-  return res.redirect('login')
 });
 
 

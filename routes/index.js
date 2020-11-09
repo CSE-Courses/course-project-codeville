@@ -21,13 +21,7 @@ router.get('/contact', (req, res) => {
     res.sendFile("contact.html");
 });
 
-router.get('/education', (req, res) => {
-    res.sendFile("education.html");
-});
 
-router.get('/PersonalDetails', (req, res) => {
-    res.sendFile("PersonalDetails.html");
-});
 
 
 
