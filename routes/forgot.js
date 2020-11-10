@@ -18,29 +18,39 @@ router.get('/verifyForgot',function(req,res,next){
 router.get('/Reset_Password', function (req, res, next) {
     res.render('Reset_Password')
 })
-
+router.get('/Forgot_Password', function (req, res, next) {
+    res.render('Forgot_Password')
+})
 
 router.post('/forgot', function(req,res,next){
     email=req.sanitize('email').escape().trim()
     if(!email){
-        res.sendFile(parent + '/public/Forgot_Password.html')
+        req.flash('error','Invalid email')
+        res.redirect('Forgot_Password')
     }
-    else{
+    var patt = /@buffalo.edu$/;
+    var result = email.match(patt);
+    if (result == null) {
+        req.flash('error', 'Use only buffalo.edu email please');
+        return res.render('Forgot_Password');
+    }
+    else {
     req.session.email=email
     // req.assert('email', 'A valid email is required').isEmail();
     // var errors = req.validationErrors()
     // if (errors) {
     //     res.sendFile(parent + '/public/Forgot_Password.html')
     // }
-    connection.query('select from users where email = $1', [email], function (err, result) {
+    connection.query('select email from users where email = $1', [email], function (err, result) {
         if (err) {
             throw err;
         }
         if(result.rows.length<1){
-            res.sendFile(parent+'/public/Forgot_Password.html')
+            req.flash('error','User does not exist')
+            res.redirect('signup')
         }
+        else next()
     });
-    next()
 }
 })
 
