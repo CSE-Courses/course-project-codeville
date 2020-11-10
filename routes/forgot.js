@@ -22,6 +22,10 @@ router.get('/Reset_Password', function (req, res, next) {
 
 router.post('/forgot', function(req,res,next){
     email=req.sanitize('email').escape().trim()
+    if(!email){
+        res.sendFile(parent + '/public/Forgot_Password.html')
+    }
+    else{
     req.session.email=email
     // req.assert('email', 'A valid email is required').isEmail();
     // var errors = req.validationErrors()
@@ -37,6 +41,7 @@ router.post('/forgot', function(req,res,next){
         }
     });
     next()
+}
 })
 
 router.post('/forgot',sendEmail,function(req,res,next){
