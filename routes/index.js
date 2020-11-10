@@ -29,9 +29,8 @@ router.get('/contact', (req, res) => {
 router.get('/education', (req, res, next) => {
         connection.query("SELECT * FROM majors",function(err, result){
             if(err) return next(err);
-            const data = result.rows;
             //console.log(count);
-            res.render('education',{data: data});
+            res.render('education',{data: result.rows});
         });
 });
 
