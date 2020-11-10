@@ -42,8 +42,8 @@ router.post('/auth', function (req, res, next) {
         }
       });
     }
-    if (rows.rows[0].isverified==0) {
-      console.log(rows,"===========");
+    else if (rows.rows.length == 1 && rows.rows[0].isverified==0) {
+      //console.log(rows,"===========");
       req.session.email=email;
       req.flash('error', 'Please verify your email first')
       return res.redirect('verify')

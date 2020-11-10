@@ -25,13 +25,13 @@ function generateP() {
 }
 
 module.exports = function sendEmail(req, res, next){
-  connection.query('SELECT email from users where email = $1',[email],function(err,result){
+  connection.query('SELECT email from users where email = $1',[req.body.email],function(err,result){
     if(err) throw err
-    if(result.rows.length >0){
-      req.flash('error','User already exists, please login')
-      return res.redirect('login');
-    }
-    else{
+    // if(result.rows.length >0){
+    //   req.flash('error','User already exists, please login')
+    //   return res.redirect('login');
+    // }
+  else{
   token = generateP();
   var mailOptions = {
     from: 'codeville42069@gmail.com',

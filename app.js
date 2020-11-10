@@ -15,6 +15,7 @@ const index = require('./routes/index.js');
 const auth = require('./routes/auth.js');
 //const pd = require('./routes/PersonalDetails.js');
 const home = require('./routes/home.js')
+const forgot = require('./routes/forgot.js')
 
 
 app.set('view engine', 'ejs');
@@ -37,8 +38,10 @@ app.use('/', index);
 app.use('/', auth);
 //app.use('/', pd);
 app.use('/',home)
+app.use('/',forgot)
 
-app.get('*', (req, res) => {
+
+app.use('*', (req, res) => {
     res.render("404");
 });
 
