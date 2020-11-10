@@ -161,7 +161,6 @@ router.post('/verify', function (req, res, next) {
 
 // Logout user
 router.get('/logout', function (req, res) {
-  console.log("here");
   req.session.loggedin = 0;
   req.session.destroy();
   return res.redirect('login');
