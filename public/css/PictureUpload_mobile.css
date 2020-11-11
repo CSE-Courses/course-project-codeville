@@ -1,0 +1,52 @@
+.line1{
+    margin-top: 2vw;
+    padding-bottom: 2vw;
+    font-size: 6vw;
+    font-weight: 3vw;
+    font-style: normal;
+    font-family: 'Merriweather', serif;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.line2{
+    font-size: 4vw;
+    font-family: 'Merriweather', serif;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.picture{
+    border: 5px solid #555;
+    margin-left: 19vw;
+    margin-top: 2.5vw;
+    width: 60vw;
+    height: 60vw;
+}
+
+.uploadbutton{
+    opacity: 5;
+    margin-top: 1.5vw;
+    margin-left: 19vw;
+}
+
+
+.nextbutton{
+    width: 27vw;
+    height: 10vw;
+    margin-top: 5vw;
+    margin-left: 38vw;
+    background: #334AC0;
+    border-color:rgb(8, 5, 212);
+    border-radius: 2vw;
+    box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
+    font-style: bold;
+    font-weight: 10vw;
+    font-size: 4vw;
+    line-height: 2vw;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
