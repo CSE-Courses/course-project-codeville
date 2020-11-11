@@ -50,7 +50,7 @@ router.post('/education',(req, res, next)=>{
         [req.session.email, major, standing],
         function(err,result){
             if(err) return next(err);
-            res.render('pictureupload');
+            res.render('404');
         }
     );
 });
