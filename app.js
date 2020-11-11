@@ -13,6 +13,7 @@ var conn = require('./db.js');
 const env = require("dotenv").config();
 const index = require('./routes/index.js');
 const auth = require('./routes/auth.js');
+const pd = require('./routes/PersonalDetails.js');
 const home = require('./routes/home.js')
 const forgot = require('./routes/forgot.js')
 
@@ -35,6 +36,7 @@ app.use(expressValidator());
 
 app.use('/', index);
 app.use('/', auth);
+app.use('/', pd);
 app.use('/',home)
 app.use('/',forgot)
 
@@ -54,3 +56,6 @@ app.use(function (err,req, res, next) {
 
 port = process.env.PORT || 80;
 var server = app.listen(port)
+
+//FOR TESTING ONLY
+// const server = app.listen(3000)
