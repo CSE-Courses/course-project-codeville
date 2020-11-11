@@ -1,5 +1,10 @@
 const express = require('express');
 const path = require('path');
+const connection  = require('../db');
+const session = require('express-session');
+
+//For testing only!
+//const connection  = require('../testDB');
 
 const router = express.Router();
 
@@ -21,6 +26,13 @@ router.get('/contact', (req, res) => {
     res.sendFile("contact.html");
 });
 
+router.get('/education', (req, res, next) => {
+        connection.query("SELECT * FROM majors",function(err, result){
+            if(err) return next(err);
+            //console.log(count);
+            res.render('education',{data: result.rows});
+        });
+});
 
 
 

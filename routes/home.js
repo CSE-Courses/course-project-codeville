@@ -14,10 +14,6 @@ router.use(function (req, res, next) {
 router.get('/personaldetails',loggedin, function (req, res, next) {
     res.render('personaldetails')
 })
-router.get('/education',loggedin, function (req, res, next) {
-    res.render('education')
-})
-
 router.get('/home', loggedin, function(req,res,next){
     connection.query('select firstlogin from users where email = $1', [req.session.email], function (err, result) {
         if (err) {
@@ -31,6 +27,34 @@ router.get('/home', loggedin, function(req,res,next){
         }
     });
 })
+
+//EDUCATION PAGE HANDLING BELOW
+
+router.get('/education',loggedin, (req, res, next) => {
+    connection.query("SELECT * FROM majors",function(err, result){
+        if(err) return next(err);
+        //console.log(count);
+        res.render('education',{data: result.rows});
+    });
+});
+
+
+router.post('/education',(req, res, next)=>{
+    const major = req.body.major;
+    const standing = req.body.class_standing;
+    //LOGIC FOR VERIFYING INFO
+    //console.log(major,standing);//To test that it retrieves correct info
+
+
+    //UPDATING USER DATABASE WITH CHOICES
+    connection.query('INSERT INTO useredu (email, major, standing) VALUES ( $1, $2, $3);',
+        [req.session.email, major, standing],
+        function(err,result){
+            if(err) return next(err);
+            res.render('404');
+        }
+    );
+});
 
 
 

@@ -13,8 +13,8 @@
     color: #000000;
 }
 
-.major{
-    margin-top: 3vw;
+.major_div{
+    margin-top: 2vw;
     margin-left:25vw ;
 }
 
@@ -39,9 +39,9 @@
     color: rgb(0, 0, 0);
 }
 
-.class_standing{
+.class_standing_div{
     margin-top: -6vw;
-    margin-left:55vw ;
+    margin-left:55vw;
 }
 
 .class_standing_text{

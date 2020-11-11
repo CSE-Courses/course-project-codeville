@@ -56,3 +56,6 @@ app.use(function (err,req, res, next) {
 
 port = process.env.PORT || 80;
 var server = app.listen(port)
+
+//FOR TESTING ONLY
+// const server = app.listen(3000)
