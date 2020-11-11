@@ -1,6 +1,7 @@
 const express = require('express');
 const connection  = require('../db');
 const crypto = require('crypto');
+var sendEmail = require('../middleware/sendEmail.js')
 
 var router = express.Router();
 
@@ -41,17 +42,20 @@ router.post('/auth', function (req, res, next) {
         }
       });
     }
-    // if (!rows.rows.isVerified) {
-    //   req.flash('error', 'Please verify your email first')
-    //   return res.redirect('verify')
-    // }
-    else if (rows.rows.length == 1) { // if user found
+    else if (rows.rows.length == 1 && rows.rows[0].isverified==0) {
+      //console.log(rows,"===========");
+      req.session.email=email;
+      req.flash('error', 'Please verify your email first')
+      return res.redirect('verify')
+    }
+    else if (rows.rows.length == 1 && rows.rows[0].isverified==1) { // if user found
       // render to views/user/edit.ejs template file
       req.session.loggedin = true;
       req.session.email = email;
-      return res.send("HI");
+      return res.redirect("home")
     }
     else {
+      //console.log("---------",rows);
       req.flash('error', 'Some error occured');
       return res.render('login');
     }
@@ -85,7 +89,7 @@ router.post('/register',function(req,res,next){
 });
 
 // user registration
-router.post('/register', function(req, res, next){
+router.post('/register', sendEmail, function(req, res, next){
 passwordConf=req.body.passwordConf;
 var user = {
 email: req.sanitize('email').escape().trim(),
@@ -113,14 +117,54 @@ if (err) {
 req.flash('error', err)
 return res.render('Signup')
 } else {
-req.flash('success', 'Successfully signed up');
-return res.render('login');
+  req.flash('error', 'Please verify your email');
+  return res.render('verify');
 }
 })
 }
 });
 });
 
+
+router.get('/verify', function (req, res, next) {
+  res.render('verify')
+});
+
+router.post('/verify', function (req, res, next) {
+  connection.query('SELECT token from verify where email = $1', [req.session.email], function (err, result) {
+    if (err) {
+      throw err;
+    }
+    tok = result.rows[0].token.trim();
+    bodyTok = req.sanitize('token').escape().trim();
+    //console.log(tok,"=========",bodyTok);
+    if (tok!= bodyTok) {
+      req.flash('error', 'Invalid Token');
+      return res.render('verify');
+    }
+    else{
+      connection.query('UPDATE users SET isVerified = 1 where email = $1', [req.session.email], function (err, result) {
+        if (err) {
+          throw err;
+        }
+      });
+      connection.query('delete from verify where email = $1', [req.session.email], function (err, result) {
+        if (err) {
+          throw err;
+        }
+      });
+      req.flash('success', 'you have successfully signed up')
+      return res.redirect('login')
+    }
+  });
+});
+
+// Logout user
+router.get('/logout', function (req, res) {
+  req.session.loggedin = 0;
+  req.session.destroy();
+  return res.redirect('login');
+});
 
 
 
