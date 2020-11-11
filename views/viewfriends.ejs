@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/viewfriends.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="js/nav.js"></script>
+    <title>WhoozeInIt?</title>
+</head>
+<body>
+<header class="topnav" id="myTopnav">
+    <span>WhoozeInIt?</span>
+    <a class="signup" href="HomePage.html">Home</a>
+    <a class="login" href="404">Profile</a>
+    <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+        <i class="fa fa-bars"></i>
+    </a>
+</header>
+    <div class="button-list">
+        <form action="viewfriends" method="post">
+            <% for(var i = 0; i < data.length; i++){%>
+            <button class="friend_button" value=<%=data[i].friends_id %>type="submit"> <%= data[i].friends_id %> </button>
+            <%}%>
+        </form>
+    </div>
+</body>
+</html>

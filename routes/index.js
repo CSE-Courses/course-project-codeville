@@ -8,8 +8,6 @@ const session = require('express-session');
 
 const router = express.Router();
 
-
-
 router.use(express.static(path.join(__dirname,'../public')));
 
 //

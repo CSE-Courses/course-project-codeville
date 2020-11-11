@@ -14,8 +14,9 @@ const env = require("dotenv").config();
 const index = require('./routes/index.js');
 const auth = require('./routes/auth.js');
 //const pd = require('./routes/PersonalDetails.js');
-const home = require('./routes/home.js')
-const forgot = require('./routes/forgot.js')
+const home = require('./routes/home.js');
+const forgot = require('./routes/forgot.js');
+const friends = require('./routes/friends.js');
 
 
 app.set('view engine', 'ejs');
@@ -37,8 +38,9 @@ app.use(expressValidator());
 app.use('/', index);
 app.use('/', auth);
 //app.use('/', pd);
-app.use('/',home)
-app.use('/',forgot)
+app.use('/',home);
+app.use('/',forgot);
+app.use('/', friends);
 
 
 app.use('*', (req, res) => {
