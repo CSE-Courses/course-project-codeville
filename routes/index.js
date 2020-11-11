@@ -26,13 +26,6 @@ router.get('/contact', (req, res) => {
     res.sendFile("contact.html");
 });
 
-router.get('/education', (req, res, next) => {
-        connection.query("SELECT * FROM majors",function(err, result){
-            if(err) return next(err);
-            //console.log(count);
-            res.render('education',{data: result.rows});
-        });
-});
 
 
 
