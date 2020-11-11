@@ -12,16 +12,14 @@ router.use(function (req, res, next) {
     next();
 });
 
-router.get('/personaldetails',loggedin, function (req, res, next) {
-    res.render('personaldetails')
-})
+
 router.get('/home', loggedin, function(req,res,next){
     connection.query('select firstlogin from users where email = $1', [req.session.email], function (err, result) {
         if (err) {
             throw err;
         }
         if(result.rows[0].firstlogin){
-            res.render('personaldetails')
+            res.redirect('personaldetails')
         }
         else{
             res.send('HI')
@@ -52,7 +50,7 @@ router.post('/education',(req, res, next)=>{
         [req.session.email, major, standing],
         function(err,result){
             if(err) return next(err);
-            res.render('404');
+            res.render('pictureupload');
         }
     );
 });

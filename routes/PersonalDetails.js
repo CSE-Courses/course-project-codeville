@@ -15,6 +15,7 @@ const client = require('../db');
 const express = require('express');
 const app = express.Router();
 const bodyparser = require('body-parser');
+const loggedin = require('../middleware/loggedin')
 app.use(bodyparser.json());
 var first_name;
 var last_name;
@@ -27,7 +28,7 @@ var gender;
 */
 
 
-app.get('/PersonalDetails', (req, res) => {
+app.get('/PersonalDetails',loggedin, (req, res) => {
     res.render("PersonalDetails");
 });
 
