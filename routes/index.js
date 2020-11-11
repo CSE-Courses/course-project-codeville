@@ -38,18 +38,21 @@ router.get('/PersonalDetails', (req, res) => {
     res.sendFile("PersonalDetails.html");
 });
 
-router.post('/education',(req, res)=>{
+router.post('/education',(req, res, next)=>{
     const major = req.body.major;
     const standing = req.body.class_standing;
     //LOGIC FOR VERIFYING INFO
     //console.log(major,standing);//To test that it retrieves correct info
 
 
-
-
     //UPDATING USER DATABASE WITH CHOICES
-    //Need to create logs for majors and class standings in database
-    //connection.query(........)
+    connection.query('INSERT INTO useredu (email, major, standing) VALUES ( $1, $2, $3);',
+        [req.session.email, major, standing],
+        function(err,result){
+            if(err) return next(err);
+            res.render('404');
+         }
+    );
 });
 
 
