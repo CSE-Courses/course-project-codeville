@@ -1,43 +1,49 @@
-//Required modules
-//npm install express
-//npm install body-parser --save
-//npm install cookie-parser --save
-//npm install multer --save
-//Express, Express cookie parser, Express multer
-
-const path = require('path');
 const express = require('express');
-
-//Loads the express module onto variable server
 const app = express();
+const bodyParser = require("body-parser");
+const multer = require('multer');
+const upload = multer();
+var flash = require('express-flash');
+const session = require("express-session");
+const cookieParser = require('cookie-parser');
+const expressValidator = require('express-validator');
+const { Client } = require('pg');
+const crypto = require('crypto');
+var conn = require('./db.js');
+const env = require("dotenv").config();
+const index = require('./routes/index.js');
+const auth = require('./routes/auth.js');
+const pd = require('./routes/PersonalDetails.js');
+const home = require('./routes/home.js')
+const forgot = require('./routes/forgot.js')
 
 
-//                         LINKING MIDDLEWARE
-//   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
-//   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
-//Links middleware index
-const index = require('./routes/index.js')
+app.use(flash());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(upload.array());
+app.use(cookieParser());
+app.use(session({
+    secret: process.env.secretSession,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}));
+app.use(expressValidator());
+
+app.use('/', index);
+app.use('/', auth);
+app.use('/', pd);
+app.use('/',home)
+app.use('/',forgot)
 
 
-
-
-
-
-
-
-
-
-
-// Linking Middleware
-
-//***SYNTAX***All routes starting with '/' will now use index
-app.use('/',index);
-
-
-//Server listener handler
-port = 4000;
-
+app.use('*', (req, res) => {
+    res.render("404");
+});
 
 //***ERROR HANDLER*** for middleware
 //Automatically catches any error middleware will send
@@ -47,5 +53,6 @@ app.use(function (err,req, res, next) {
     res.status(500).send('ERROR, printing to console.error')
 });
 
-app.listen(port);
-console.log(port);
+
+port = process.env.PORT || 80;
+var server = app.listen(port)

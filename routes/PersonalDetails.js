@@ -35,31 +35,44 @@ app.get('/PersonalDetails', (req, res) => {
 
 app.post('/personal_details', function (req,res) {
 
-      first_name = req.body.first_name.toString();
-      last_name = req.body.last_name.toString();
-      dob = req.body.dob.toString();
-      gender = req.body.gender.toString();
+      first_name = req.sanitize('first_name').escape().trim();
+      last_name = req.sanitize('last_name').escape().trim();
+      dob = req.sanitize('dob').escape().trim();
+      gender = req.sanitize('gender').escape().trim();
       console.log("Data received.");
 
+			first_name = first_name.toString();
+			last_name = last_name.toString();
+			dob = dob.toString();
+			gender = gender.toString();
+			gender = gender.substring(0,1);
+			if (gender=='M' || gender=='F' || gender=='N' || gender=='P'){
+
+			}
+			else{
+				gender = "Invalid";
+			}
+			console.log(gender);
 //		Input Validation for Personal DETAILS
 
+			req.assert('first_name', 'Inputs cannot be empty.').notEmpty();
+			req.assert('last_name', 'Inputs cannot be empty.').notEmpty();
+			req.assert('dob', 'Inputs cannot be empty.').notEmpty();
+			req.assert('gender', 'Inputs cannot be empty.').notEmpty();
+			req.assert('first_name', 'First Name should be alphabetic only.').isAlpha();
+			req.assert('first_name', 'First Name should be less than 50 characters.').isLength({max:50});
+			req.assert('last_name', 'Last Name should be alphabetic only.').isAlpha();
+			req.assert('last_name', 'Last Name should be less than 50 characters.').isLength({max:50});
+			req.assert('dob', 'Invalid Date of Birth.').isBefore((new Date()).toString())
+			req.assert('gender', 'Gender is invalid.').isLength(1);
 
-			if (first_name=="" || !(first_name.isAlpha()) || first_name.length<50){
-				req.flash("error", "Invalid input for First Name.")
-				res.render("/PersonalDetails");
-			}
-			if (last_name=="" || !(last_name.isAlpha()) || last_name.length<50){
-				req.flash("error", "Invalid input for Last Name.")
-				res.render("/PersonalDetails");
-			}
-			if (dob == ""){
-				req.flash("error", "Invalid date of birth.")
-				res.render("/PersonalDetails");
-			}
-			if (gender=="" || !(gender.isAlpha()) || gender.length<=1){
-				req.flash("error", "Invalid input for gender.")
-				res.render("/PersonalDetails");
-			}
+
+			var errors = req.validationErrors()
+		  if(errors) {
+		  req.flash('error',errors[0].msg);
+		  return res.render('personaldetails');
+		  }
+			console.log("Data Validated.");
 
 
 //		Update the databse with Personal Details received from Client.
@@ -76,7 +89,7 @@ app.post('/personal_details', function (req,res) {
           }
         })
 
-			res.redirect('education.html');
+			res.redirect('education');
 
 });
 
