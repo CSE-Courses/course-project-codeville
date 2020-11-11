@@ -1,0 +1,24 @@
+
+
+.h4 {
+  font-family: "Merriweather", serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.btn {
+  background-color: #334ac0;
+  width: 50%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.nav {
+	font-family: "Merriweather", serif;
+	background-color: #f6f6f6
+
+
+}
