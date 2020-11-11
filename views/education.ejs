@@ -28,19 +28,34 @@
 
 <h1 class="Education_setup">Alright FirstName! Let's get your educational details!</h1>
 
-<div class="major">
-    <p class="major_text">Major</p>
-    <input class="major_box" type="text" id="major" name="major" >
+<div class="overlay">
+    <form action="education" method="post">
+        <div class="major_div">
+            <p class="major_text">Major</p>
+            <input class="major_box" type="text" id="major" name="major" list="major_list" required>
+            <datalist id="major_list">
+                <% for(var i = 0; i < data.length; i++){%>
+                <option> <%= data[i].major %></option>
+                <%}%>
+           </datalist>
+        </div>
+
+        <div class="class_standing_div">
+            <p class="class_standing_text">Class Standing</p>
+            <input class="class_standing_box" id="class_standing" name="class_standing" list="class_standing_list" required>
+            <datalist id="class_standing_list">
+                <option value="Freshman">Freshman</option>
+                <option value="Sophomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Graduate">Graduate</option>
+                <option value="Other">Other</option>
+            </datalist>
+            </select>
+        </div>
+    <button type="submit" id="next" class="next"> Next</button>
+    </form>
 </div>
-
-<div class="class_standing">
-    <p class="class_standing_text">Class Standing</p>
-    <input class="class_standing_box" type="text" id="class_standing" name="class_standing" >
-</div>
-
-
-<button onclick="window.location.href='/education'"  id="next" class="next"> Next</button>
-
 
 </body>
 </html>

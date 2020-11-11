@@ -1,5 +1,10 @@
 const express = require('express');
 const path = require('path');
+const connection  = require('../db');
+const session = require('express-session');
+
+//For testing only!
+//const connection  = require('../testDB');
 
 const router = express.Router();
 
