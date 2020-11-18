@@ -23,3 +23,18 @@
     font-family: 'Poppins', sans-serif;
     color: white;
     }
+
+.coursetable{
+    margin-top: 1.5vw;
+    height: 4vw;
+    text-align: center;
+    line-height: 1vw;
+    background: #EDF2F7;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+
+    }
+
+.coursetext{
+    font-family: 'Merriweather', serif;
+    padding-top: 1.5vw;
+}
