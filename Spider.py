@@ -95,10 +95,18 @@ for link in Links:
     for s in str:
         y=s.string
         if j%10==0:
-            if y is None:
-                classID=''
-            else:
+            if y is None and s.find("</a>")!=-1:
+                classID="<<< >>>"
+                j+=1
+            elif y is None:
+                classID=""
+            elif y.strip().isnumeric():
                 classID=y.strip()
+            # else:
+            #     classID="0000"
+            #     j+=1
+            # else:
+            #     classID=y.strip()
         elif j%10==1:
             j+=1
             continue
