@@ -78,7 +78,7 @@ app.post('/personal_details', function (req,res) {
 
 //		Update the databse with Personal Details received from Client.
 
-			var query = "INSERT INTO personal_details VALUES('"+first_name+"', '"+last_name+"', '"+dob+"', '"+gender+"');";
+			var query = "INSERT INTO personal_details VALUES('"+first_name+"', '"+last_name+"', '"+dob+"', '"+gender+"', '"+req.session.email+"');";
 
       client.query(query, (err,res) => {
           if (err) throw err
