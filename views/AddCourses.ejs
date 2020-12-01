@@ -30,7 +30,9 @@
 			<div class="searchinput">
 				<input type="text" id="dept" list="dept" placeholder="Dept.">
 					<datalist id="dept">
-						<option value="Example">Example</option>
+						<% for(var i = 0; i < data.length; i++){%>
+						<option> <%= data[i].dabbr %></option>
+						<%}%>
 					</datalist>
 				<input type="text" id="course" list="course" placeholder="Course">
 					<datalist id="course">
