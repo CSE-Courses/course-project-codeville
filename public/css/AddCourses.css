@@ -142,26 +142,37 @@ tr{
 	font-size: 1em;
 	line-height: 1.5em;
 }
+tr:nth-child(even){
+	background: #EDF2F7;
+}
 #class{
 	width: 15%;
-}
-#coursenum{
-	width: 20%;
+	padding: 2%;
 }
 #title{
 	width: 30%;
+	padding: 2%;
+
 }
 #sec{
 	width: 5%;
+	padding: 2%;
+
 }
 #days{
 	width: 10%;
+	padding: 2%;
+
 }
 #time{
-	width: 10%;
+	width: 30%;
+	padding: 2%;
+
 }
 #instructor{
 	width: 10%;
+	padding: 2%;
+
 }
 .searchinput{
 	display: block;
@@ -224,7 +235,7 @@ tr{
 	#selections{
 		margin-top: 10%;
 	}
-	#class, #days, #time, #instructor {
+	#course, #days, #time, #instructor {
 		display: none;
 	}
 }
