@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/viewfriends.css">
+    <link rel="stylesheet" href="css/addFriends.css">
     <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
@@ -16,17 +16,29 @@
 <header class="topnav" id="myTopnav">
     <span>WhoozeInIt?</span>
     <a class="signup" href="HomePage.html">Home</a>
-    <a class="login" href="addFriends">Add Friends</a>
+    <a class="login" href="viewfriends">View Friends</a>
     <a href="javascript:void(0);" class="icon" onclick="expandNav()">
         <i class="fa fa-bars"></i>
     </a>
 </header>
-    <div class="button-list">
-        <form action="viewfriends" method="post">
+<div class="button-list">
+    <form action="searchFriends" method="get">
+        <div class="search_div">
+            <input class="search_friends" type="text" name="search_friends">
+
+            <button type="submit" id="next" class="next"> Search </button>
+
+        </div>
+    </form>
+    <% if (data && data.length) {%>
+    <form action="addFriends" method="post">
+        <ul>
             <% for(var i = 0; i < data.length; i++){%>
-            <button class="friend_button" value=<%=data[i].friends_id %>type="submit"> <%= data[i].friends_id %> </button>
+            <button class="add_friend" value=<%=data[i].email %> type="submit">Add Friend <%= data[i].first_name%> </button>
             <%}%>
-        </form>
-    </div>
+        </ul>
+    </form>
+    <% } %>
+</div>
 </body>
 </html>
