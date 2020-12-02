@@ -30,7 +30,7 @@ router.get('/home', loggedin, function(req,res,next){
 //EDUCATION PAGE HANDLING BELOW
 
 router.get('/education',loggedin, (req, res, next) => {
-    connection.query("SELECT * FROM majors",function(err, result){
+    connection.query("SELECT DISTINCT dname FROM courses",function(err, result){
         if(err) return next(err);
         //console.log(count);
         res.render('education',{data: result.rows});
