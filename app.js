@@ -31,7 +31,7 @@ app.use(session({
     secret: process.env.secretSession,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: {}
 }));
 app.use(expressValidator());
 

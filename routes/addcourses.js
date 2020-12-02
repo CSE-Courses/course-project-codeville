@@ -1,10 +1,10 @@
 const express = require('express');
 const connection = require('../db');
-
+const loggedin = require('../middleware/loggedin')
 var router = express.Router();
 
 
-router.get('/gettitle:dabbr',function(req,res){
+router.get('/gettitle:dabbr', loggedin, function(req,res){
 
     dabbr = req.params.dabbr
     //console.log("++++++++++++++++++"+dabbr);
@@ -20,7 +20,7 @@ router.get('/gettitle:dabbr',function(req,res){
     });
 });
 
-router.get('/getoptions:title',function(req,res){
+router.get('/getoptions:title',loggedin, function(req,res){
     title = req.params.title
     connection.query('select classid,title,section,days,time,instructor from courses where title = $1', [title], function (err, result) {
         if (err) {
@@ -36,7 +36,7 @@ router.get('/getoptions:title',function(req,res){
 
 
 
-router.post("/updatecourses", function(req,res){
+router.post("/updatecourses", loggedin, function(req,res){
     str = req.body.data
     if(str==""){
         res.send("no")
