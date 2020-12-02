@@ -13,6 +13,7 @@
 		<script src="js/nav.js"></script>
 
 	</head>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<body>
 
 		<header class="topnav" id="myTopnav">
@@ -24,19 +25,82 @@
         </a>
     </header>
 
+		<script>
+			function getTitle(str){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function (){
+					if (this.readyState == 4 && this.status == 200){
+						displayTitle(this.responseText);
+						//console.log("----------"+this.responseText);
+
+					}
+				};
+				xmlhttp.open("GET", "/gettitle"+str, true);
+				xmlhttp.send();
+			}
+
+			function getOptions(str){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						displayOptions(this.responseText);
+						//console.log("----------"+this.responseText);
+
+					}
+				};
+				if(str==""){
+					displayOptions("")
+				}
+				else{
+				xmlhttp.open("GET", "/getoptions" + str, true);
+				xmlhttp.send();
+				}
+			}
+
+			function sendSelections(){
+				tBody = document.getElementById('selectionsBody');
+				str = "";
+
+				for (i = 0; i < tBody.rows.length; i++) {
+
+					for (j = 0; j < tBody.rows[0].cells.length; j++) {
+
+						str += tBody.rows[i].cells[j].innerHTML + '~';
+					}
+					str = str.slice(0,-1)
+					str += '|';
+				}
+				str = str.slice(0, -1)
+				$.ajax({
+					type: 'POST',
+					url: '/updatecourses',
+					data: {
+						data: str
+					},
+					dataType: 'text',
+					success: function (response) {
+					if (response=="no") {
+						window.location.href="AddCourses"
+					}
+					else {
+						window.location.href="pictureupload"
+					}
+					}
+				})
+			}
+		</script>
 		<div class="container">
 			<h1>Let's see your schedule</h1>
 			<h2>Please upload your courses to the schedule</h2>
 			<div class="searchinput">
-				<input type="text" id="dept" list="deptlist" placeholder="Dept.">
-					<datalist id="dept">
+				<input type="text" id="dept" list="deptlist" placeholder="Dept." onchange="getTitle(this.value)">
+					<datalist id="deptlist">
 						<% for(var i = 0; i < data.length; i++){%>
 						<option> <%= data[i].dabbr %></option>
 						<%}%>
 					</datalist>
-				<input type="text" id="course" list="courselist" placeholder="Course">
-					<datalist id="course">
-						<option value="Example">Example</option>
+				<input type="text" id="course" list="courselist" placeholder="Course" onchange="getOptions(this.value)">
+					<datalist id="courselist">
 					</datalist>
 			</div>
 			<div class="coursetable">
@@ -45,7 +109,6 @@
 					<thead>
 						<tr id="heading">
 							<th id="class">Class</th>
-							<th id="coursenum">Course</th>
 							<th id="title">Title</th>
 							<th id="sec">Section</th>
 							<th id="days">Days</th>
@@ -53,13 +116,13 @@
 							<th id="instructor">Instructor</th>
 						</tr>
 					</thead>
+					<tbody id="optionsBody"></tbody>
 				</table>
 				<table id="selections">
 					<caption>Your selected courses will appear here</caption>
 					<thead>
 						<tr id="heading">
 							<th id="class">Class</th>
-							<th id="coursenum">Course</th>
 							<th id="title">Title</th>
 							<th id="sec">Section</th>
 							<th id="days">Days</th>
@@ -67,9 +130,11 @@
 							<th id="instructor">Instructor</th>
 						</tr>
 					</thead>
+					<tbody id="selectionsBody"></tbody>
 				</table>
 			</div>
 		</div>
+		<button onclick="sendSelections();">Submit</button>
 
 	</body>
 </html>

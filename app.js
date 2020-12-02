@@ -17,7 +17,7 @@ const home = require('./routes/home.js');
 const forgot = require('./routes/forgot.js');
 const friends = require('./routes/friends.js');
 const pd = require('./routes/PersonalDetails.js');
-
+const addCourses = require('./routes/addcourses.js');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -41,6 +41,7 @@ app.use('/', pd);
 app.use('/',home);
 app.use('/',forgot);
 app.use('/', friends);
+app.use('/', addCourses);
 
 app.use('*', (req, res) => {
     res.render("404");
