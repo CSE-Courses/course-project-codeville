@@ -16,33 +16,37 @@ router.get('/viewfriends', function (req,res,next) {
 });
 
 router.post('/viewfriends',function (req,res,next) {
-
     res.render('404');
 });
 
 router.get('/addFriends',function(req, res,next) {
-    // connection.query("SELECT first_name FROM personal_details WHERE first_name = $1", [req.body.search_friends], function (err, result) {
-    //     if(err) return next(err);
-    //
-    //     res.render('addFriends', {data: result.rows})
-    // });
-    console.log("GET Request");
     res.render('addFriends',{data: {}});
 });
 
 
-router.post('/addFriends', function(req,res,next) {
+router.post('/addFriends',loggedin, function(req,res,next) {
+    const friendEmail = req.body.add_friend;
+    //NOT WORKING ATM
+    console.log(req.body);
+
+    connection.query("INSERT INTO friends (email, friend_email, status) VALUES ($1, $2, $3);",
+        [req.session.email,friendEmail, 1],
+        function(err,result){
+        if(err) return next(err);
+        });
+    connection.query("INSERT INTO friends (email, friend_email, status) VALUES ($1, $2, $3);",
+        [friendEmail,req.session.email, 2],
+        function(err,result){
+            if(err) return next(err);
+        })
 
 });
 
 router.get('/searchFriends',function(req,res,next) {
-    // connection.query("SELECT first_name FROM personal_details WHERE first_name LIKE '%' + $1 + '%'", [req.body], function(err,result) {
-    //
-    // } )
     console.log(`${req.method} ${req.path}`);
     const {body, query} = req;
     console.log({body, query})
-    const searchFriends = query.search_friends.replace(/%/g, '') + '%'; // strip wildcards
+    const searchFriends = query.search_friends.replace(/%/g, '') + '%';
 
     if (searchFriends) {
         connection.query("SELECT * FROM personal_details WHERE first_name ILIKE $1", [searchFriends], function (err, result) {

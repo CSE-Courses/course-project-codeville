@@ -24,7 +24,7 @@
     <div class="button-list">
         <form action="viewfriends" method="post">
             <% for(var i = 0; i < data.length; i++){%>
-            <button class="friend_button" value=<%=data[i].friends_id %>type="submit"> <%= data[i].friends_id %> </button>
+            <button class="friend_button" name="friend_button" value=<%=data[i].friends_id %>type="submit"> <%= data[i].friends_id %> </button>
             <%}%>
         </form>
     </div>
