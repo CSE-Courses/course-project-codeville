@@ -191,6 +191,10 @@ tr:nth-child(even){
 #selections{
 	width: 40%;
 }
+tbody{
+	cursor: pointer;
+}
+
 
 @media screen and (max-width: 1050px) {
 
