@@ -50,11 +50,17 @@ router.post('/education',(req, res, next)=>{
         [req.session.email, major, standing],
         function(err,result){
             if(err) return next(err);
-            res.render('pictureupload');
+            res.render('AddCourses');
         }
     );
 });
 
-
+router.get('/AddCourses', loggedin, (req, res, next) => {
+    connection.query("SELECT DISTINCT dabbr FROM courses", function (err, result) {
+        if (err) return next(err);
+        //console.log(result.rows);
+        res.render('AddCourses', { data: result.rows });
+    });
+});
 
 module.exports = router;
