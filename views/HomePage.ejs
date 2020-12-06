@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\HomePage.css">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="css\HomePage_mobile.css">
+
+    <script src="js/nav.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topnav" id="myTopnav">
+        <span >WhoozeInIt?</span>
+        <a class="signup" href="Friends.html">Friends</a>
+        <a class="login" href="Courses.html">Courses</a>
+        <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
+    <% for(var i=0; i < classids.length;i++){ %>
+
+    <div class="classContainer">
+        <table class="table">
+            <tr>
+                <th>Class ID</th>
+                <th>Title</th>
+                <th>Section</th>
+            </tr>
+            <tr>
+                <td><%= classids[i] %></td>
+                <td><%= titles[i] %></td>
+                <td><%= sections[i] %></td>
+            </tr>
+        </table>
+       <div class="init">
+           <a onclick="getNames(this)">Placeholder text</a>
+       </div>
+    </div>
+
+    <%}%>
+    
+
+</body>
+</html>

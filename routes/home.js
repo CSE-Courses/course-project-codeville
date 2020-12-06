@@ -13,6 +13,28 @@ router.use(function (req, res, next) {
 });
 
 
+router.get('/HomePage', function (req, res, next) {
+    connection.query('select classid, title, section from studentcourses where email=$1', [req.session.email], function (err, result) {
+        if (err) {
+            throw err;
+        }
+        var classids = []
+        var titles = []
+        var sections = []
+
+        for(i=0; i<result.rows.length; i++){
+            classids[i]=result.rows[i].classid
+            titles[i]=result.rows[i].title
+            sections[i]=result.rows[i].section
+        }
+        while (classids.indexOf("&lt;&lt;&lt; &gt;&gt;&gt;")!=-1){
+            classids[classids.indexOf("&lt;&lt;&lt; &gt;&gt;&gt;")]="<<< >>>"
+        }
+        res.render('HomePage', {classids: classids, titles:titles, sections:sections})
+    });
+})
+
+
 router.get('/home', loggedin, function(req,res,next){
     connection.query('select firstlogin from users where email = $1', [req.session.email], function (err, result) {
         if (err) {
@@ -22,7 +44,7 @@ router.get('/home', loggedin, function(req,res,next){
             res.redirect('personaldetails')
         }
         else{
-            res.send('HI')
+            res.redirect('HomePage')
         }
     });
 })
