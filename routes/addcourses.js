@@ -49,6 +49,7 @@ router.post("/updatecourses", loggedin, function(req,res){
             if(err) throw err;
         } )
     })
+    connection.query("update users set firstlogin=0 where email = $1",[req.session.email])
     res.send("yes")
 }
 })

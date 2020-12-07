@@ -22,7 +22,7 @@ router.get('/home', loggedin, function(req,res,next){
             res.redirect('personaldetails')
         }
         else{
-            res.send('HI')
+            res.redirect('HomePage')
         }
     });
 })
@@ -30,10 +30,14 @@ router.get('/home', loggedin, function(req,res,next){
 //EDUCATION PAGE HANDLING BELOW
 
 router.get('/education',loggedin, (req, res, next) => {
+    firstName = ""
+    connection.query("select first_name from personal_details where email = $1",[req.session.email],function(err,respo){
+        firstName = respo.rows[0].first_name
+    })
     connection.query("SELECT DISTINCT dname FROM courses",function(err, result){
         if(err) return next(err);
         //console.log(count);
-        res.render('education',{data: result.rows});
+        res.render('education',{data: result.rows, name:firstName});
     });
 });
 
