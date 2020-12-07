@@ -49,6 +49,18 @@ td{
     bottom: 0;
     width: 100%;
 }
-a{
+input{
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    border: none;
+    color: black;
+    font-size: 1.2em;
+}
+.toHide{
+    display: none;
+}
+.tooltip{
     cursor: pointer;
 }
+

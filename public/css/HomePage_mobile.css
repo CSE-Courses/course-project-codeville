@@ -21,7 +21,7 @@ html,body{
     padding-top: 4%;
     border-spacing: 5px;
     border-collapse: separate;
-   font-size: 1.3em;
+   font-size: 1em;
 }
 td:nth-child(1){
     width: 20%;
@@ -39,7 +39,7 @@ td{
 .init{
     background-color: #334AC0;
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
     /* margin-top: 3%; */
     border-radius: 50px;
     height: 29%;
@@ -49,6 +49,17 @@ td{
     bottom: 0;
     width: 100%;
 }
-a{
+input{
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    border: none;
+    color: black;
+    font-size: 0.7em;
+}
+.toHide{
+    display: none;
+}
+.tooltip{
     cursor: pointer;
 }
