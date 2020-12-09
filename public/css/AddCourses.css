@@ -194,6 +194,24 @@ tr:nth-child(even){
 tbody{
 	cursor: pointer;
 }
+button{
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 25px;
+  background: #334AC0;
+  color: #FFFFFF;
+	/* font-family: 'Poppins', sans-serif; */
+  font-size: 1.25em;
+	padding: 1%;
+  /* font-weight: 800; */
+	margin-top: 5%;
+	margin-bottom: 10%;
+	border-style: none;
+	cursor: pointer;
+	padding-left: 2%;
+	padding-right: 2%;
+}
 
 
 @media screen and (max-width: 1050px) {
