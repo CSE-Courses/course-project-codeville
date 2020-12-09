@@ -1,25 +1,87 @@
-.profilepic{
-    margin-top: 1vw;
-    border: 5px solid rgb(0, 0, 0);
-    width: 40vw;
-    height: 40vw;
-    margin-left: 30vw;
-    }
+html{
+    background-color:  #e9e9e9 !important;
+}
 
-    .editbutton{
-        width: 25vw;
-        height: 13vw;
-        margin-top: 1vw;
-        margin-left: 39vw;
-    
-        background: #334AC0;
-        border-color:rgb(0, 0, 0);
-        border-radius: 1vw;
-        box-shadow: 6px 12px 12px rgba(0, 0, 0, 0.12);
-        font-style: bold;
-        font-weight: 4vw;
-        font-size: 3.5vw;
-        line-height: 2vw;
-        font-family: 'Poppins', sans-serif;
-        color: white;
-        }
+html,body{
+    height:100%;
+}
+#h{
+	font-family: 'Merriweather', serif;
+	font-size: 2em;
+	color: #000000;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2%;
+	position: relative;
+	left: -2%;
+	text-align: center;
+}
+#toHide{
+    display: none !important;
+}
+#identifier{
+position: absolute;
+float: left;
+font-family: 'yeseva one';
+font-size: 2em;
+color: black;
+margin-left: 5%;
+}
+.classContainer{
+    position: relative;
+    background-color: white;
+    margin: 5% 10% 0 10%;
+    height: 25%;
+    border-radius: 40px;
+    box-shadow: 1px 1px grey;
+    text-align: center;
+		margin-bottom: 5%;
+}
+
+.table{
+    display: block;
+    padding-top: 4%;
+    border-spacing: 5px;
+    border-collapse: separate;
+   font-size: 1em;
+}
+td:nth-child(1){
+    width: 20%;
+}
+td:nth-child(2){
+    width: 60%;
+}
+td:nth-child(3){
+    width: 1000px;
+}
+th{
+  color: #000000;
+}
+.init{
+    background-color: #334AC0;
+    color: white;
+    font-size: 1em;
+    /* margin-top: 3%; */
+		border-bottom-left-radius: 40px;
+		border-bottom-right-radius: 40px;
+    height: 29%;
+    text-align: center;
+    line-height: 200%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+input{
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    border: none;
+    color: black;
+    font-size: 0.7em;
+}
+.toHide{
+    display: none;
+}
+.tooltip{
+    cursor: pointer;
+}

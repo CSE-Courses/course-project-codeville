@@ -1,0 +1,63 @@
+*{
+	box-sizing: border-box;
+}
+.h4 {
+  font-family: "Merriweather", serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.btn {
+  background-color: #334ac0;
+  width: 50%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.nav {
+	font-family: "Merriweather", serif;
+	background-color: #f6f6f6
+}
+
+#personal,#educational,#courses{
+	background-color: #FFFFFF;
+}
+table{
+	display: inline-block;
+	margin: 2.5%;
+}
+
+tr{
+	padding: 1.5%;
+	width: 100%;
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+tr:nth-child(odd){
+	background: #EDF2F7;
+}
+#heading{
+	background: #FFFFFF;
+}
+#class{
+	width: 25%;
+}
+#title{
+	width: 50%;
+}
+#section{
+
+}
+th, td{
+	padding: 1.5%;
+}
+tbody, thead{
+	cursor: pointer;
+	background: #FFFFFF;
+}

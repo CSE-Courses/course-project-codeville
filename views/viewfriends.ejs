@@ -3,30 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/viewfriends.css">
-    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
+    <title>View Friends</title>
+
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\ViewFriends.css">
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="css\ViewFriends_mobile.css">
+
+    <script src="js/nav.js"></script>
     <link rel="stylesheet" href="css/header.css">
+    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <script src="js/nav.js"></script>
-    <title>WhoozeInIt?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <header class="topnav" id="myTopnav">
-    <span>WhoozeInIt?</span>
-    <a class="signup" href="HomePage.html">Home</a>
-    <a class="login" href="404">Profile</a>
+    <span >WhoozeInIt?</span>
+    <a class="signup" href="/homepage">Home</a>
+    <a class="login" href="/Profile">Profile</a>
     <a href="javascript:void(0);" class="icon" onclick="expandNav()">
         <i class="fa fa-bars"></i>
     </a>
 </header>
-    <div class="button-list">
-        <form action="viewfriends" method="post">
-            <% for(var i = 0; i < data.length; i++){%>
-            <button class="friend_button" value=<%=data[i].friends_id %>type="submit"> <%= data[i].friends_id %> </button>
-            <%}%>
-        </form>
-    </div>
+
+<a href="addFriends" class="Mates">To Add Mates Click Here</a>
+
+<% for(var i = 0; i < data.length; i++){%>
+
+<div class="contain">
+        <form action="friendrequests" method="post">
+        <div class="random"> <span></span></div>
+        <div class="majorcontainer"  ><span><%=data[i].major %></span></div>
+        <div class="namecontainer"  ><span><%=data[i].name %></span></div>
+        <div class="emailcontainer" ><span><%=data[i].email %></span></div>
+        <input type="hidden" name="email" value=<%=data[i].email %>/>
+        <input type="hidden" name="status" value=<%=data[i].status %>/>
+        <% let status = data[i].status;
+        if(status == 2){%>
+            <button class="dynamicbutton" type="submit" value="Accept">Accept</button>
+        <%}
+        else if(status == 1){%>
+            <button class="dynamicbutton" type="submit" value="Cancel">Cancel</button>
+        <%}
+        else{%>
+            <button class="dynamicbutton" type="submit" value="Delete">Delete</button>
+        <%}%>
+            <button class="button" type="button" onclick="location.href='/profile-<%=data[i].email.split("@")[0]%>'">View Profile</button>
+    </form>
+
+</div>
+
+
+<%}%>
+
 </body>
 </html>

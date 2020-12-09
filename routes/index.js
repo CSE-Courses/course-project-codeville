@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const connection  = require('../db');
 const session = require('express-session');
-const loggedin = require('../middleware/loggedin')
 
 //For testing only!
 //const connection  = require('../testDB');
@@ -26,9 +25,6 @@ router.get('/contact', (req, res) => {
     res.sendFile(parent+"/public/contact.html");
 });
 
-router.get('/pictureupload', loggedin,(req, res) => {
-    res.sendFile(parent+'/public/PictureUpload.html');
-});
 
 
 

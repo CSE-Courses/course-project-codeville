@@ -7,7 +7,7 @@ font-style: normal;
 font-weight: bold;
 font-size: 3vw;
 line-height: 3.5vw;
-display: flex;
+display: block;
 align-items: center;
 text-align: center;
 color: #000000;
@@ -134,4 +134,5 @@ color: rgb(0, 0, 0);
     font-family: 'Poppins', sans-serif;
     color: white;
 		cursor: pointer;
+		border-style: none;
 }

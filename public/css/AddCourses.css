@@ -1,0 +1,263 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	width: 100%;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* AddCourses CSS */
+*{
+  box-sizing: border-box;
+}
+html{
+	background-color: #f6f6f6;
+	color: #000000;
+}
+.container{
+	margin-top: 3%;
+}
+h1,h2{
+	text-align: center;
+}
+h1{
+	font-family: 'Merriweather', serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2em;
+}
+h2{
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1em;
+	margin-top: 3%;
+}
+input{
+	font-family: 'Merriweather', serif;
+	font-style: normal;
+	font-weight: 300;
+	display: inline-block;
+	padding: 0.5%;
+	background: #EDF2F7;
+	border-color: rgba(51,74,192,0.5);
+  border-style: solid;
+  border-width: 2px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	margin-top: 3%;
+}
+::-webkit-input-placeholder {
+    color: black;
+    font-weight: normal;
+		font-family: 'Merriweather', serif;
+		font-style: normal;
+		font-weight: 300;
+}
+:-moz-placeholder {
+		color: black;
+		font-weight: normal;
+		font-family: 'Merriweather', serif;
+		font-style: normal;
+		font-weight: 300;
+}
+:-ms-input-placeholder {
+		color: black;
+		font-weight: normal;
+		font-family: 'Merriweather', serif;
+		font-style: normal;
+		font-weight: 300;
+}
+#dept{
+	width: 5%;
+	margin-right: 5%;
+}
+#course{
+	width: 20%;
+}
+table{
+	display: inline-block;
+	margin: 2.5%;
+	background-color: #FFFFFF;
+}
+caption{
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: 300;
+	display: inline-block;
+	width: 100%;
+	/* padding: 1.5%; */
+	line-height: 1.5em;
+	background: #EDF2F7;
+	border-color: rgba(51,74,192,0.5);
+  border-style: solid;
+	border-width: 2px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+}
+tr{
+	padding: 1.5%;
+	width: 100%;
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+tr:nth-child(even){
+	background: #EDF2F7;
+}
+#class{
+	width: 15%;
+	padding: 2%;
+}
+#title{
+	width: 30%;
+	padding: 2%;
+
+}
+#sec{
+	width: 5%;
+	padding: 2%;
+
+}
+#days{
+	width: 10%;
+	padding: 2%;
+
+}
+#time{
+	width: 30%;
+	padding: 2%;
+
+}
+#instructor{
+	width: 10%;
+	padding: 2%;
+
+}
+.searchinput{
+	display: block;
+	text-align: center;
+	margin-top: 2%;
+}
+.coursetable{
+	display: block;
+	text-align: center;
+	margin-top: 3%;
+	width: 100%;
+}
+#options{
+	width: 40%;
+}
+#selections{
+	width: 40%;
+}
+tbody{
+	cursor: pointer;
+}
+button{
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 25px;
+  background: #334AC0;
+  color: #FFFFFF;
+	/* font-family: 'Poppins', sans-serif; */
+  font-size: 1.25em;
+	padding: 1%;
+  /* font-weight: 800; */
+	margin-top: 5%;
+	margin-bottom: 10%;
+	border-style: none;
+	cursor: pointer;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+
+@media screen and (max-width: 1050px) {
+
+	input{
+		margin-top: 3%;
+		margin-bottom: 3%;
+	}
+	table {
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		margin-bottom: 5%;
+	}
+	#selections, #options{
+		width: 70%;
+	}
+
+}
+@media screen and (max-width: 760px) {
+
+	h1,h2{
+		margin-top: 5%;
+	}
+	table,input {
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		margin-bottom: 5%;
+	}
+	#dept{
+		margin-right: auto;
+		width: 10%;
+		margin-top: 10%;
+	}
+	#course{
+		width: 40%;
+		margin-bottom: 10%;
+	}
+	#selections, #options{
+		width: 80%;
+	}
+	#selections{
+		margin-top: 10%;
+	}
+	#class, #days, #time, #instructor {
+		display: none;
+	}
+}

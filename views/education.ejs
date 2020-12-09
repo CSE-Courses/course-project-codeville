@@ -26,7 +26,7 @@
     </a>
 </header>
 
-<h1 class="Education_setup">Alright FirstName! Let's get your educational details!</h1>
+<h1 class="Education_setup">Alright <%=name%>! Let's get your educational details!</h1>
 
 <div class="overlay">
     <form action="education" method="post">
@@ -35,7 +35,7 @@
             <input class="major_box" type="text" id="major" name="major" list="major_list" required>
             <datalist id="major_list">
                 <% for(var i = 0; i < data.length; i++){%>
-                <option> <%= data[i].major %></option>
+                <option> <%= data[i].dname %></option>
                 <%}%>
            </datalist>
         </div>
