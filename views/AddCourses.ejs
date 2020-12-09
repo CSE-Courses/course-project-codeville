@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>WhoozeInIt?</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/AddCourses.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+		<script src="js/nav.js"></script>
+
+	</head>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<body>
+
+		<header class="topnav" id="myTopnav">
+        <span>WhoozeInIt?</span>
+        <a class="signup" href="logout">Logout</a>
+        <a class="login" href="login" style="visibility: hidden">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+		<script>
+        function retainColor(row){
+            index=row.rowIndex
+            //console.log(index);
+            if(index%2==0){
+                row.style.backgroundColor='#EDF2F7'
+            }
+            else{
+                row.style.backgroundColor='#ffffff'
+            }
+        }
+
+
+        function displayTitle(str) {
+
+
+
+        strArr = str.split('|');
+        const list = document.getElementById('courselist');
+        list.innerHTML=""
+        strArr.forEach(item => {
+        let option = document.createElement('option');
+        option.value = item;
+        list.appendChild(option);
+        });
+        }
+
+        function displayOptions(str) {
+            if(str==""){
+                var tBody = document.getElementById('optionsBody');
+                tBody.innerHTML=""
+            }
+            else{
+                rows = str.split('|');
+                var tBody = document.getElementById('optionsBody');
+                var tBody2 = document.getElementById('selectionsBody');
+                pairs = []
+                for (i = 0; i < tBody2.rows.length; i++) {
+                    pair = [tBody2.rows[i].cells[1].innerHTML, tBody2.rows[i].cells[2].innerHTML]
+                    pairs.push(pair)
+
+                }
+                tBody.innerHTML=""
+                rows.forEach(row => {
+                    cells=row.split("~")
+
+                    pair = [cells[1], cells[2]]
+                    flag=false
+                    pairs.forEach(p =>{
+                    if(p[0]==pair[0] && p[1]==pair[1]){
+                        flag=true
+                    }
+                    });
+                    if(flag){
+
+                    }
+                    else{
+                    var newRow = tBody.insertRow();
+
+                    newRow.setAttribute("onclick","selectOption(this)")
+                    newRow.setAttribute("onmouseover","this.style.backgroundColor = '#b5ffc0'")
+                    newRow.setAttribute("onmouseout","retainColor(this)")
+
+                    cells = row.split('~');
+                    cells.forEach(cell => {
+                        var newCell = newRow.insertCell();
+                        var newText = document.createTextNode(cell);
+                        newCell.appendChild(newText);
+
+                    });
+                }
+                });
+            }
+            }
+
+
+
+
+            function selectOption(row) {
+                    var tBody = document.getElementById('selectionsBody');
+                    tBody.appendChild(row);
+                    row.removeAttribute("onclick")
+                    row.setAttribute("onclick","deleteOption(this)")
+                    row.removeAttribute("onmouseover")
+                    row.setAttribute("onmouseover", "this.style.backgroundColor = '#ffb5bc'")
+                }
+                function deleteOption(row) {
+                    var course = document.getElementById('course').value;
+                    var tBody = document.getElementById('selectionsBody');
+                    var cellTitle = row.cells[1].innerHTML
+                    if (course == cellTitle) {
+                        var tBody2 = document.getElementById('optionsBody');
+                        tBody2.appendChild(row);
+                        row.removeAttribute("onclick")
+                        row.setAttribute("onclick","selectOption(this)")
+                        row.removeAttribute("onmouseover")
+                        row.setAttribute("onmouseover", "this.style.backgroundColor = '#b5ffc0'")
+                    }
+                    else {
+                        row.remove()
+                    }
+                }
+    </script>
+		<script>
+			function getTitle(str){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function (){
+					if (this.readyState == 4 && this.status == 200){
+						displayTitle(this.responseText);
+						//console.log("----------"+this.responseText);
+
+					}
+				};
+				xmlhttp.open("GET", "/gettitle"+str, true);
+				xmlhttp.send();
+			}
+
+			function getOptions(str){
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						displayOptions(this.responseText);
+						//console.log("----------"+this.responseText);
+
+					}
+				};
+				if(str==""){
+					displayOptions("")
+				}
+				else{
+				xmlhttp.open("GET", "/getoptions" + str, true);
+				xmlhttp.send();
+				}
+			}
+
+			function sendSelections(){
+				tBody = document.getElementById('selectionsBody');
+				str = "";
+
+				for (i = 0; i < tBody.rows.length; i++) {
+
+					for (j = 0; j < tBody.rows[0].cells.length; j++) {
+
+						str += tBody.rows[i].cells[j].innerHTML + '~';
+					}
+					str = str.slice(0,-1)
+					str += '|';
+				}
+				str = str.slice(0, -1)
+				$.ajax({
+					type: 'POST',
+					url: '/updatecourses',
+					data: {
+						data: str
+					},
+					dataType: 'text',
+					success: function (response) {
+					if (response=="no") {
+						window.location.href="AddCourses"
+					}
+					else {
+						window.location.href="homepage"
+					}
+					}
+				})
+			}
+		</script>
+		<div class="container">
+			<h1>Let's see your schedule</h1>
+			<h2>Please upload your courses to the schedule</h2>
+			<div class="searchinput">
+				<input type="text" id="dept" list="deptlist" placeholder="Dept." onchange="getTitle(this.value)">
+					<datalist id="deptlist">
+						<% for(var i = 0; i < data.length; i++){%>
+						<option> <%= data[i].dabbr %></option>
+						<%}%>
+					</datalist>
+				<input type="text" id="course" list="courselist" placeholder="Course" onchange="getOptions(this.value)">
+					<datalist id="courselist">
+					</datalist>
+			</div>
+			<div class="coursetable">
+				<table id="options">
+					<caption>Your course options will appear here</caption>
+					<thead>
+						<tr id="heading">
+							<th id="class">Class</th>
+							<th id="title">Title</th>
+							<th id="sec">Section</th>
+							<th id="days">Days</th>
+							<th id="time">Time</th>
+							<th id="instructor">Instructor</th>
+						</tr>
+					</thead>
+					<tbody id="optionsBody"></tbody>
+				</table>
+				<table id="selections">
+					<caption>Your selected courses will appear here</caption>
+					<thead>
+						<tr id="heading">
+							<th id="class">Class</th>
+							<th id="title">Title</th>
+							<th id="sec">Section</th>
+							<th id="days">Days</th>
+							<th id="time">Time</th>
+							<th id="instructor">Instructor</th>
+						</tr>
+					</thead>
+					<tbody id="selectionsBody"></tbody>
+				</table>
+			</div>
+		</div>
+		<button onclick="sendSelections();">Submit</button>
+
+	</body>
+</html>
