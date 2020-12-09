@@ -20,7 +20,6 @@
     .tooltip {
         display: inline-block;
         position: relative;
-        border-bottom: 1px dotted #666;
         text-align: left;
     }
 
@@ -76,9 +75,10 @@
 
 <body onload="getNext()">
     <header class="topnav" id="myTopnav">
+				<span  id="identifier"><i class="fas fa-home"></i> <div id="toHide" style="display: inline-block;">Home</div></span>
         <span >WhoozeInIt?</span>
         <a class="signup" href="Friends.html">Friends</a>
-        <a class="login" href="Courses.html">Courses</a>
+        <a class="login" href="MyProfile">My Profile</a>
         <a href="javascript:void(0);" class="icon" onclick="expandNav()">
             <i class="fa fa-bars"></i>
         </a>
@@ -147,7 +147,7 @@
 
     }
 </script>
-
+		<div id="h">My Courses</div>
     <% for(var i=0; i < classids.length;i++){ %>
 
     <div class="classContainer">
@@ -157,6 +157,12 @@
                 <th>Title</th>
                 <th>Section</th>
             </tr>
+						<tr>
+
+						</tr>
+						<tr>
+
+						</tr>
             <tr class="yeRow">
                 <td><%= classids[i] %></td>
                 <td><%= titles[i] %></td>
@@ -174,7 +180,7 @@
     </div>
 
     <%}%>
-    
+
 
 </body>
 </html>

@@ -5,6 +5,25 @@ html{
 html,body{
     height:100%;
 }
+#h{
+	font-family: 'Merriweather', serif;
+	font-size: 2em;
+	color: #000000;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2%;
+	position: relative;
+	left: -2%;
+	text-align: center;
+}
+#identifier{
+    position: absolute;
+float: left;
+font-family: 'yeseva one';
+font-size: 2em;
+color: black;
+margin-left: -5%;
+}
 
 .classContainer{
     position: relative;
@@ -14,7 +33,7 @@ html,body{
     border-radius: 40px;
     box-shadow: 1px 1px grey;
     text-align: center;
-		margin-bottom: 10%;
+		margin-bottom: 5%;
 }
 
 .table{
@@ -33,22 +52,23 @@ td:nth-child(2){
 td:nth-child(3){
     width: 1000px;
 }
-td{
-    border: 2px solid rgba(51, 74, 192, 0.5) !important;
-    background: #EDF2F7;
+
+th{
+	color: #000000;
 }
 .init{
     background-color: #334AC0;
     color: white;
     font-size: 1.5em;
     /* margin-top: 3%; */
-    border-radius: 50px;
+		border-bottom-left-radius: 40px;
+		border-bottom-right-radius: 40px;
     height: 29%;
     text-align: center;
-    line-height: 150%;
     position: absolute;
     bottom: 0;
     width: 100%;
+		line-height: 200%;
 }
 input{
     cursor: pointer;
