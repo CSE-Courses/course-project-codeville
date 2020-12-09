@@ -34,10 +34,12 @@ router.get('/viewfriends',loggedin, async function (req,res,next) {
 });
 
 router.post('/friendrequests', loggedin, function (req,res,next) {
+    console.log("Friend Requests");
     const {body, query} = req;
     console.log({body, query});
     let status = body.status.replace('/','');
     let friendemail = body.email.replace('/','');
+    console.log(friendemail)
     if(status == 2){ //Accept case
         connection.query("UPDATE friendstest SET status = 0 WHERE email = $1 AND friend_email = $2", [req.session.email, friendemail]);
         connection.query("UPDATE friendstest SET status = 0 WHERE email = $1 AND friend_email = $2", [friendemail, req.session.email]);
@@ -56,8 +58,9 @@ router.get('/addFriends',loggedin,function(req, res,next) {
 
 
 router.post('/addFriends',loggedin, function(req,res,next) {
-    const friendEmail = req.body.email;
-    //NOT WORKING ATM
+    const friendEmail = req.body.email.replace('/','');
+
+    console.log("AddFriends");
     console.log(req.body);
 
     connection.query("INSERT INTO friendstest (email, friend_email, status) VALUES ($1, $2, $3);",
@@ -73,9 +76,10 @@ router.post('/addFriends',loggedin, function(req,res,next) {
     res.redirect('addFriends');
 });
 
-router.get('/searchFriends',async function(req,res,next) {
+router.get('/searchFriends',loggedin, async function(req,res,next) {
     //FOR TESTING
     const {body, query} = req;
+    console.log("SearchFriends");
     console.log({body, query});
 
 
@@ -83,7 +87,7 @@ router.get('/searchFriends',async function(req,res,next) {
     const searchFriends = '%' + req.query.search_friends.replace(/%/g, '') + '%';
 
     if (searchFriends) {
-        let result = await connection.query("SELECT * FROM personal_details WHERE (first_name ILIKE $1 OR last_name ILIKE $1) AND email NOT IN(SELECT friend_email FROM friendstest WHERE email = $2)", [searchFriends, req.session.email]);
+        let result = await connection.query("SELECT * FROM personal_details WHERE (first_name ILIKE $1 OR last_name ILIKE $1) AND email NOT IN(SELECT friend_email FROM friendstest WHERE email = $2) AND email <> $2 ", [searchFriends, req.session.email]);
         for(i = 0; i< result.rows.length;i++){
             let email = result.rows[i].email;
             let name = result.rows[i].first_name + ' ' + result.rows[i].last_name;

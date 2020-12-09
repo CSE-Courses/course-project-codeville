@@ -20,8 +20,8 @@
 
 <header class="topnav" id="myTopnav">
     <span >WhoozeInIt?</span>
-    <a class="signup" href="/HomePage">Home</a>
-    <a class="login" href="Edit.html">Edit</a>
+    <a class="signup" href="/homepage">Home</a>
+    <a class="login" href="/Profile">Profile</a>
     <a href="javascript:void(0);" class="icon" onclick="expandNav()">
         <i class="fa fa-bars"></i>
     </a>
@@ -49,8 +49,9 @@
         else{%>
             <button class="dynamicbutton" type="submit" value="Delete">Delete</button>
         <%}%>
+            <button class="button" type="button" onclick="location.href='/profile-`<%=data[i].email.split("@")[0]%>`'">View Profile</button>
     </form>
-        <button class="button" onclick="location.href='/profile-`<%=data[i].email.split("@")[0]%>`'">View Profile</button>
+
 </div>
 
 
