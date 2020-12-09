@@ -29,23 +29,30 @@
 
 <div class="searchbox">
     <div class="input-group ">
-        <input type="text" class="form-control-lg shadow ml-3 mt-2" style="width: 40vw;" placeholder="UBIT Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <span class="input-group-text mt-2" id="basic-addon2">@buffalo.edu</span>
-        </div>
+        <form action="searchFriends" method="get">
+            <input type="text" class="form-control-lg shadow ml-3 mt-2" style="width: 40vw;" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2" name="search_friends">
+            <div class="input-group-append">
+                <button class="input-group-text mt-2" id="basic-addon2" type="submit">Search!</button>
+            </div>
+        </form>
     </div>
 </div>
 
+<% for(var i = 0; i < data.length; i++){%>
 
 <div class="contain">
-    <div class="random"> <span></span></div>
-    <div class="majorcontainer">Information sceience awith sd<span id="major"></span></div>
-    <div class="namecontainer"> Jason Britto Alvarez Chinko Sam<span id="name"></span></div>
-    <div class="emailcontainer">jbritto@buffalo.edu<span id="email"></span></div>
+    <form action="addFriends" method="post">
+        <div class="random"> <span></span></div>
+        <div class="majorcontainer"><%=data[i].major %><span id="major"></span></div>
+        <div class="namecontainer"> <%=data[i].name %><span id="name"></span></div>
+        <div class="emailcontainer"><%=data[i].email %><span id="email"></span></div>
 
-    <button class="dynamicbutton" id="make me dynamic">w</button>
+        <input type="hidden" name="email" value=<%=data[i].email %>/>
 
-    <button class="button" >Send Friend Request</button>
+
+    <button class="button" type="submit" >Send Friend Request</button>
+    </form>
+    <% } %>
 </div>
 </body>
 </html>

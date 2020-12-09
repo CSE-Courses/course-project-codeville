@@ -56,7 +56,7 @@ router.get('/addFriends',function(req, res,next) {
 
 
 router.post('/addFriends',loggedin, function(req,res,next) {
-    const friendEmail = req.body.add_friend;
+    const friendEmail = req.body.email;
     //NOT WORKING ATM
     console.log(req.body);
 
@@ -70,23 +70,33 @@ router.post('/addFriends',loggedin, function(req,res,next) {
         function(err,result){
             if(err) return next(err);
         })
-
+    res.redirect('addFriends');
 });
 
-router.get('/searchFriends',function(req,res,next) {
-    console.log(`${req.method} ${req.path}`);
+router.get('/searchFriends',async function(req,res,next) {
+    //FOR TESTING
     const {body, query} = req;
-    console.log({body, query})
-    const searchFriends = query.search_friends.replace(/%/g, '') + '%';
+    console.log({body, query});
+
+
+    const data = [];
+    const searchFriends = '%' + req.query.search_friends.replace(/%/g, '') + '%';
 
     if (searchFriends) {
-        connection.query("SELECT * FROM personal_details WHERE first_name ILIKE $1", [searchFriends], function (err, result) {
-            if(err) return next(err);
-
-            console.log(result.rows);
-
-            res.render('addFriends',{data: result.rows})
-        });
+        let result = await connection.query("SELECT * FROM personal_details WHERE (first_name ILIKE $1 OR last_name ILIKE $1) AND email NOT IN(SELECT friend_email FROM friendstest WHERE email = $2)", [searchFriends, "test4@buffalo.edu"]);
+        for(i = 0; i< result.rows.length;i++){
+            let email = result.rows[i].email;
+            let name = result.rows[i].first_name + ' ' + result.rows[i].last_name;
+            let eduResult = await connection.query("SELECT major FROM useredu WHERE email = $1", [email]);
+            let major = eduResult.rows[0].major;
+            let varDict = {
+                email: email,
+                name:name,
+                major: major
+            };
+            data.push(varDict);
+        }
+        res.render('addFriends',{data: data});
     } else {
         res.render('addFriends',{data: {}});
     }

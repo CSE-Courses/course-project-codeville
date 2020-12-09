@@ -27,16 +27,16 @@
     </a>
 </header>
 
-<a href="AddFriends.html" class="Mates">To Add Mates Click Here</a>
+<a href="addFriends" class="Mates">To Add Mates Click Here</a>
 
 <% for(var i = 0; i < data.length; i++){%>
 
 <div class="contain">
         <form action="friendrequests" method="post">
         <div class="random"> <span></span></div>
-        <div class="majorcontainer" data-value=<%=data[i].major %>><span><%=data[i].major %></span></div>
-        <div class="namecontainer" data-value=<%=data[i].name %>><span><%=data[i].name %></span></div>
-        <div class="emailcontainer" data-value=<%=data[i].email %>><span><%=data[i].email %></span></div>
+        <div class="majorcontainer"  ><span><%=data[i].major %></span></div>
+        <div class="namecontainer"  ><span><%=data[i].name %></span></div>
+        <div class="emailcontainer" ><span><%=data[i].email %></span></div>
         <input type="hidden" name="email" value=<%=data[i].email %>/>
         <input type="hidden" name="status" value=<%=data[i].status %>/>
         <% let status = data[i].status;
