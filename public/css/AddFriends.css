@@ -26,16 +26,7 @@
     margin-left: 10vw;
     
 }
-.dynamicbutton{
-font-family: 'Poppins', sans-serif;
-font-size: 1.1vw;
- margin-left: 72vw;
- margin-top: vw;
-background: #0076ec;
-height: 2vw;
-width: 3vw;
 
-}
 .random{
     margin-left: 2vw;
     background: #ffffff;
@@ -83,8 +74,8 @@ width: 24vw;
 .button{
 font-size: 1.2vw;
 font-family: 'Merriweather', serif;
-margin-left: 30vw;
-margin-top: 1vw;
+margin-left: 29vw;
+margin-top: 2vw;
 border: white;
 border-radius: 1vw;
 

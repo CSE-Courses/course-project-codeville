@@ -28,15 +28,16 @@
 </header>
 
 <div class="searchbox">
-    <div class="input-group ">
-        <form action="searchFriends" method="get">
-            <input type="text" class="form-control-lg shadow ml-3 mt-2" style="width: 40vw;" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2" name="search_friends">
-            <div class="input-group-append">
-                <button class="input-group-text mt-2" id="basic-addon2" type="submit">Search!</button>
-            </div>
-        </form>
+
+<form action="searchFriends" method="get">
+    <div class="input-group mb-3">
+            <input type="text" class="form-control-lg shadow ml-3 " style="width: 40vw;" placeholder="Name" aria-label="Recipient's username" aria-describedby="basic-addon2" name="search_friends">
+            <button class="btn btn-outline-secondary btn-lg " id="basic-addon2" type="submit">Search</button>        
     </div>
+</form>
+    
 </div>
+
 
 <% for(var i = 0; i < data.length; i++){%>
 
