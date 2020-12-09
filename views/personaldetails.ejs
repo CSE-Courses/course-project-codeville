@@ -37,27 +37,27 @@
         </a>
     </header>
 
-    <h1 class="Personal_messageSetUp">Hello! I’m Naina. I’ll help you set up your profile. Are you Ready?</h1>
+    <h1 class="Personal_messageSetUp">Let's help you set up your profile...</h1>
 		<form action="/personal_details"  method="post">
 	    <div class="first_name">
 	         <p class="first_name_text">First Name</p>
-	        <input class="first_name_box" type="text" id="first_name" name="first_name" >
+	        <input class="first_name_box" type="text" id="first_name" name="first_name" required >
 	    </div>
 
 	    <div class="last_name">
 	         <p class="last_name_text">Last Name</p>
-	        <input class="last_name_box" type="text" id="last_name" name="last_name" >
+	        <input class="last_name_box" type="text" id="last_name" name="last_name"  required >
 	    </div>
 
 	    <div class="dob">
 	        <p class="dob_text">Date of Birth</p>
-	        <input class="dob_box" type="date" id="calender" name="dob" >
+	        <input class="dob_box" type="date" id="calender" name="dob" require>
 	    </div>
 
 	    <div class="gender">
 	     <p class="gender_text">Gender</p>
 	     <!-- <form  name="gender" id="gender" > -->
-	        <select class="gender_box" name="gender" id="gender_selected">
+	        <select class="gender_box" name="gender" id="gender_selected" required>
 	            <option class="gender_list" value="" selected="selected"></option>
 	        </select>
 	    <!-- </form> -->

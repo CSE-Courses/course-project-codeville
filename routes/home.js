@@ -8,6 +8,10 @@ const { release } = require('os');
 const router = express.Router();
 
 
+router.use(express.static(path.join(__dirname,'../public')));
+parent = path.resolve(__dirname, '..')
+
+
 router.use(function (req, res, next) {
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     next();
@@ -21,8 +25,8 @@ router.post("/getfriends",loggedin, async function(req,res){
     section=req.body.section
     //console.log(classid, title,section);
     str = ""
-    let result = await connection.query("select friend_email from friendstest where email = $1 and status = 0 and friend_email in (select email from studentcourses where classid=$2 and title=$3 and section=$4);", [req.session.email, classid, title, section])
-    for(i=0;i<result.rows.length;i++){  
+    let result = await connection.query("select friend_email from friends where email = $1 and status = 0 and friend_email in (select email from studentcourses where classid=$2 and title=$3 and section=$4);", [req.session.email, classid, title, section])
+    for(i=0;i<result.rows.length;i++){
         let resul = await connection.query("select first_name, last_name from personal_details where email = $1", [result.rows[i].friend_email])
         str += resul.rows[0].first_name + " " + resul.rows[0].last_name + "~" + result.rows[i].friend_email + "|"
     }
@@ -45,7 +49,7 @@ router.get('/HomePage', loggedin, function (req, res, next) {
             titles[i]=result.rows[i].title
             sections[i]=result.rows[i].section
         }
-            
+
     while (classids.indexOf("&lt;&lt;&lt; &gt;&gt;&gt;")!=-1){
         classids[classids.indexOf("&lt;&lt;&lt; &gt;&gt;&gt;")]="<<< >>>"
     }
@@ -73,7 +77,12 @@ router.get('/home', loggedin, function(req,res,next){
 router.get('/education',loggedin, (req, res, next) => {
     firstName = ""
     connection.query("select first_name from personal_details where email = $1",[req.session.email],function(err,respo){
-        firstName = respo.rows[0].first_name
+			if(respo.rows.length!=0){
+				firstName = respo.rows[0].first_name
+			}
+			else{
+				firstName = "Stranger";
+			}
     })
     connection.query("SELECT DISTINCT dname FROM courses",function(err, result){
         if(err) return next(err);
@@ -95,6 +104,7 @@ router.post('/education',loggedin,(req, res, next)=>{
         [req.session.email, major, standing],
         function(err,result){
             if(err) return next(err);
+
             res.redirect('AddCourses');
         }
     );

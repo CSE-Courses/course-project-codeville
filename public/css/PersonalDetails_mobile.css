@@ -1,6 +1,6 @@
 .Personal_messageSetUp{
     margin-top: 4vw;
-    margin-left: 15vw;  
+    margin-left: 15vw;
     margin-right: 15vw;
     font-family: 'Merriweather', serif;
     font-style: normal;
@@ -12,22 +12,22 @@
     text-align: center;
     color: #000000;
     }
-    
+
     .first_name{
         align-content: center;
         margin-top: 5vw;
         margin-left:20vw ;
     }
-    
+
     .first_name_text{
         padding-bottom: 1vw;
         font-family: 'Times New Roman', Times, serif;
         font-style: normal;
         font-weight: 5vw;
         font-size: 5.5vw;
-        color: #334AC0; 
+        color: #334AC0;
     }
-    
+
     .first_name_box{
     width: 60vw;
     height: 10vw;
@@ -39,22 +39,22 @@
     font-size: 3vw;
     color: rgb(0, 0, 0);
     }
-    
+
     .last_name{
         align-content: center;
         margin-top: 8vw;
         margin-left:20vw ;
     }
-    
+
     .last_name_text{
         padding-bottom: 1vw;
         font-family: 'Times New Roman', Times, serif;
         font-style: normal;
         font-weight: 5vw;
         font-size: 5.5vw;
-        color: #334AC0; 
+        color: #334AC0;
     }
-    
+
     .last_name_box{
     width: 60vw;
     height: 10vw;;
@@ -66,22 +66,22 @@
     font-size: 3vw;
     color: rgb(0, 0, 0);
     }
-    
+
     .dob{
         align-content: center;
        margin-top: 8vw;
         margin-left:20vw ;
     }
-    
+
     .dob_text{
         padding-bottom: 1vw;
         font-family: 'Times New Roman', Times, serif;
         font-style: normal;
         font-weight: 5vw;
         font-size: 5.5vw;
-        color: #334AC0; 
+        color: #334AC0;
     }
-    
+
     .dob_box{
         width: 60vw;
      height: 10vw;;
@@ -93,22 +93,22 @@
     font-size: 3vw;
     color: rgb(0, 0, 0);
     }
-    
+
     .gender{
         align-content: center;
         margin-top: 8vw;
         margin-left:20vw ;
     }
-    
+
     .gender_text{
         padding-bottom: 1vw;
         font-family: 'Times New Roman', Times, serif;
         font-style: normal;
         font-weight: 5vw;
         font-size: 5.5vw;
-        color: #334AC0; 
+        color: #334AC0;
     }
-    
+
     .gender_box{
     width: 62vw;
     height: 12vw;;
@@ -120,9 +120,9 @@
     font-size: 3vw;
     color: rgb(0, 0, 0);
     }
-    
-    
-    
+
+
+
     .next{
         width: 30vw;
         height: 10vw;
@@ -138,5 +138,5 @@
         line-height: 2vw;
         font-family: 'Poppins', sans-serif;
         color: white;
+				border-style: none;
     }
-

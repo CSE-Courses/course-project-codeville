@@ -1,0 +1,49 @@
+Database structure is as follows:
+
+courses= Scraped data from UB about courses
+
+dname | dabbr | classid | title | section | type | days | time | room | location | instructor
+
+
+
+friends= Stores relations between users(0 = accepted(friends), 1 = request sent, 2 = request pending)
+
+email | friend_email | status
+
+
+
+majors= Scraped data from UB about majors
+
+major | id
+
+
+
+personal_details= stores users personal details
+
+first_name | last_name | dob | gender
+
+
+
+usercourses= stores users connection with courses
+
+email | classid
+
+
+
+useredu= Stores the users educational details
+
+email | major | standing
+
+
+
+users= Stores users email,password,verification status and id
+
+email | password | isverified | id | firstlogin
+
+
+
+verify= Stores the info needed to verify email
+
+email | token
+
+

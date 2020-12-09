@@ -20,8 +20,10 @@ body {
 .nav {
 	font-family: "Merriweather", serif;
 	background-color: #f6f6f6
+}
 
-
+#personal,#educational,#courses{
+	background-color: #FFFFFF;
 }
 table{
 	display: inline-block;
