@@ -7,12 +7,30 @@ const session = require('express-session');
 const router = express.Router();
 
 
-router.get('/viewfriends', function (req,res,next) {
-    connection.query("SELECT friends_id FROM testfriends WHERE useremail = $1", ["pskasza@buffalo.edu"], function (err, result) {
-        if(err) return next(err);
+router.get('/viewfriends', async function (req,res,next) {
+    let data = [];
 
-        res.render('viewfriends', {data: result.rows})
-    });
+    //CHANGE EMAIL VALUE FOR result, TESTING ONLY
+
+    let result = await connection.query("SELECT friend_email, status FROM friendstest WHERE email = $1 ORDER BY status ASC", ["test@buffalo.edu"]);
+    let listFriends = result.rows;//Should return all friends, as well as requests
+    for(i = 0; i < listFriends.length; i++){
+        let friendsEmail = listFriends[i].friend_email;
+        let status = listFriends[i].status;
+        let perResult = await connection.query("SELECT first_name, last_name FROM personal_details WHERE email = $1", [friendsEmail]);
+        let eduResult = await connection.query("SELECT major FROM useredu WHERE email = $1", [friendsEmail]);
+        console.log(perResult.rows);
+        let name = perResult.rows[0].first_name + ' ' + perResult.rows[0].last_name;
+        let major = eduResult.rows[0].major;
+        let varDict = {
+            email: friendsEmail,
+            status:status,
+            name:name,
+            major: major
+        };
+        data.push(varDict);
+    }
+    res.render('viewfriends', {data: data})
 });
 
 router.post('/viewfriends',function (req,res,next) {
