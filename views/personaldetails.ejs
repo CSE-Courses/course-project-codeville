@@ -1,76 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <script>
-            var subjectObject = {"Male": [],"Female": [],"Non-Binary":[],"Prefer Not To Answer":[]}
-            window.onload = function() {
-            var subjectSel = document.getElementById("gender_selected");
-            for (var x in subjectObject) {
-                subjectSel.options[subjectSel.options.length] = new Option(x, x);
-            }}
+  <head>
+    <script>
+      var subjectObject = {
+        Male: [],
+        Female: [],
+        "Non-Binary": [],
+        "Prefer Not To Answer": [],
+      };
+      window.onload = function () {
+        var subjectSel = document.getElementById("gender_selected");
+        for (var x in subjectObject) {
+          subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+      };
+    </script>
 
-
-        </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen and (min-width: 750px)" href="css\PersonalDetails.css">
-    <link rel="stylesheet" media="screen and (max-width: 750px)" href="css\PersonalDetails_mobile.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 750px)"
+      href="css\PersonalDetails.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 750px)"
+      href="css\PersonalDetails_mobile.css"
+    />
 
     <script src="js/nav.js"></script>
-    <link rel="stylesheet" href="css/header.css">
-    <script src="https://kit.fontawesome.com/26b935012c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/header.css" />
+    <script
+      src="https://kit.fontawesome.com/26b935012c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <title>Personal Details</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header class="topnav" id="myTopnav">
-        <span>WhoozeInIt?</span>
-        <a class="signup" href="logout">Logout</a>
-        <a class="login" href="login" style="visibility: hidden">Login</a>
-        <a href="javascript:void(0);" class="icon" onclick="expandNav()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <span>WhoozeInIt?</span>
+      <a class="signup" href="logout">Logout</a>
+      <a class="login" href="login" style="visibility: hidden">Login</a>
+      <a href="javascript:void(0);" class="icon" onclick="expandNav()">
+        <i class="fa fa-bars"></i>
+      </a>
     </header>
 
     <h1 class="Personal_messageSetUp">Let's help you set up your profile...</h1>
-		<form action="/personal_details"  method="post">
-	    <div class="first_name">
-	         <p class="first_name_text">First Name</p>
-	        <input class="first_name_box" type="text" id="first_name" name="first_name" required >
-	    </div>
+    <form action="/personal_details" method="post">
+      <div class="first_name">
+        <p class="first_name_text">First Name</p>
+        <input
+          class="first_name_box"
+          type="text"
+          id="first_name"
+          name="first_name"
+          required
+        />
+      </div>
 
-	    <div class="last_name">
-	         <p class="last_name_text">Last Name</p>
-	        <input class="last_name_box" type="text" id="last_name" name="last_name"  required >
-	    </div>
+      <div class="last_name">
+        <p class="last_name_text">Last Name</p>
+        <input
+          class="last_name_box"
+          type="text"
+          id="last_name"
+          name="last_name"
+          required
+        />
+      </div>
 
-	    <div class="dob">
-	        <p class="dob_text">Date of Birth</p>
-	        <input class="dob_box" type="date" id="calender" name="dob" require>
-	    </div>
+      <div class="dob">
+        <p class="dob_text">Date of Birth</p>
+        <input class="dob_box" type="date" id="calender" name="dob" required />
+      </div>
 
-	    <div class="gender">
-	     <p class="gender_text">Gender</p>
-	     <!-- <form  name="gender" id="gender" > -->
-	        <select class="gender_box" name="gender" id="gender_selected" required>
-	            <option class="gender_list" value="" selected="selected"></option>
-	        </select>
-	    <!-- </form> -->
-	    </div>
-			<% if (messages.error) { %>
-      <p style="color:red; margin-top:4%; text-align: center;"><%- messages.error %></p>
+      <div class="gender">
+        <p class="gender_text">Gender</p>
+        <!-- <form  name="gender" id="gender" > -->
+        <select class="gender_box" name="gender" id="gender_selected" required>
+          <option class="gender_list" value="" selected="selected"></option>
+        </select>
+        <!-- </form> -->
+      </div>
+      <% if (messages.error) { %>
+      <p style="color: red; margin-top: 4%; text-align: center">
+        <%- messages.error %>
+      </p>
+      <% } %> <% if (messages.success) { %>
+      <p style="color: green; margin-top: 4%; text-align: center">
+        <%- messages.success %>
+      </p>
       <% } %>
-      <% if (messages.success) { %>
-      <p style="color:green;margin-top:4%; text-align: center;"><%- messages.success %></p>
-      <% } %>
-	    <button id="next" type="submit" class="next"> Next</button>
-		</form>
-
-
-</body>
+      <button id="next" type="submit" class="next">Next</button>
+    </form>
+  </body>
 </html>
