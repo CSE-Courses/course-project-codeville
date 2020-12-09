@@ -12,7 +12,7 @@ router.get('/viewfriends', async function (req,res,next) {
 
     //CHANGE EMAIL VALUE FOR result, TESTING ONLY
 
-    let result = await connection.query("SELECT friend_email, status FROM friendstest WHERE email = $1 ORDER BY status ASC", ["test@buffalo.edu"]);
+    let result = await connection.query("SELECT friend_email, status FROM friendstest WHERE email = $1 ORDER BY status ASC", ["test4@buffalo.edu"]);
     let listFriends = result.rows;//Should return all friends, as well as requests
     for(i = 0; i < listFriends.length; i++){
         let friendsEmail = listFriends[i].friend_email;
@@ -33,8 +33,21 @@ router.get('/viewfriends', async function (req,res,next) {
     res.render('viewfriends', {data: data})
 });
 
-router.post('/viewfriends',function (req,res,next) {
-    res.render('404');
+router.post('/friendrequests', function (req,res,next) {
+    const {body, query} = req;
+    console.log({body, query});
+    let status = body.status.replace('/','');
+    let friendemail = body.email.replace('/','');
+    if(status == 2){ //Accept case
+        connection.query("UPDATE friendstest SET status = 0 WHERE email = $1 AND friend_email = $2", ["test4@buffalo.edu", friendemail]);
+        connection.query("UPDATE friendstest SET status = 0 WHERE email = $1 AND friend_email = $2", [friendemail, "test4@buffalo.edu"]);
+    }
+    //Either cancel, or delete friend/friend req. Does same thing to database
+    else{
+        connection.query("DELETE FROM friendstest WHERE email = $1 AND friend_email = $2",["test4@buffalo.edu", friendemail])
+        connection.query("DELETE FROM friendstest WHERE email = $1 AND friend_email = $2",[friendemail, "test4@buffalo.edu"])
+    }
+    res.redirect('viewfriends');
 });
 
 router.get('/addFriends',function(req, res,next) {

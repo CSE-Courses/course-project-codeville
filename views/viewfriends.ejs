@@ -31,25 +31,28 @@
 
 <% for(var i = 0; i < data.length; i++){%>
 
-<form action="viewfriends" method="post">
-    <div class="contain">
+<div class="contain">
+        <form action="friendrequests" method="post">
         <div class="random"> <span></span></div>
         <div class="majorcontainer" data-value=<%=data[i].major %>><span><%=data[i].major %></span></div>
         <div class="namecontainer" data-value=<%=data[i].name %>><span><%=data[i].name %></span></div>
         <div class="emailcontainer" data-value=<%=data[i].email %>><span><%=data[i].email %></span></div>
+        <input type="hidden" name="email" value=<%=data[i].email %>/>
+        <input type="hidden" name="status" value=<%=data[i].status %>/>
         <% let status = data[i].status;
         if(status == 2){%>
-            <button class="dynamicbutton" type="submit" value="Cancel">Cancel</button>
+            <button class="dynamicbutton" type="submit" value="Accept">Accept</button>
         <%}
         else if(status == 1){%>
-            <button class="dynamicbutton" type="submit" value="Accept">Accept</button>
+            <button class="dynamicbutton" type="submit" value="Cancel">Cancel</button>
         <%}
         else{%>
             <button class="dynamicbutton" type="submit" value="Delete">Delete</button>
         <%}%>
+    </form>
         <button class="button" onclick="location.href='/profile-`<%=data[i].email.split("@")[0]%>`'">View Profile</button>
-    </div>
-</form>
+</div>
+
 
 <%}%>
 
