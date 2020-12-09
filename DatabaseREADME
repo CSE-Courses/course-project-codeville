@@ -6,13 +6,13 @@ dname | dabbr | classid | title | section | type | days | time | room | location
 
 
 
-friends= Stores relations between users
+friends= Stores relations between users(0 = accepted(friends), 1 = request sent, 2 = request pending)
 
 email | friend_email | status
 
 
 
-majors= Scraped data from UB about majors(Not yet implemented/scraped)
+majors= Scraped data from UB about majors
 
 major | id
 

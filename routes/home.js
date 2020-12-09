@@ -8,6 +8,10 @@ const { release } = require('os');
 const router = express.Router();
 
 
+router.use(express.static(path.join(__dirname,'../public')));
+parent = path.resolve(__dirname, '..')
+
+
 router.use(function (req, res, next) {
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     next();
@@ -100,6 +104,7 @@ router.post('/education',loggedin,(req, res, next)=>{
         [req.session.email, major, standing],
         function(err,result){
             if(err) return next(err);
+
             res.redirect('AddCourses');
         }
     );
