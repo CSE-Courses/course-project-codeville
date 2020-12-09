@@ -60,12 +60,12 @@ router.post('/addFriends',loggedin, function(req,res,next) {
     //NOT WORKING ATM
     console.log(req.body);
 
-    connection.query("INSERT INTO friends (email, friend_email, status) VALUES ($1, $2, $3);",
+    connection.query("INSERT INTO friendstest (email, friend_email, status) VALUES ($1, $2, $3);",
         [req.session.email,friendEmail, 1],
         function(err,result){
         if(err) return next(err);
         });
-    connection.query("INSERT INTO friends (email, friend_email, status) VALUES ($1, $2, $3);",
+    connection.query("INSERT INTO friendstest (email, friend_email, status) VALUES ($1, $2, $3);",
         [friendEmail,req.session.email, 2],
         function(err,result){
             if(err) return next(err);
